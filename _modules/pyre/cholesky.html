@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyre.cholesky &mdash; PyRe 5.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '5.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="PyRe 5.0.2 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">PyRe 5.0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pyre.cholesky</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/python -tt</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="computeCholeskyDecomposition"><a class="viewcode-back" href="../../calculations.html#pyre.cholesky.computeCholeskyDecomposition">[docs]</a><span class="k">def</span> <span class="nf">computeCholeskyDecomposition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Compute Cholesky Decomposition&quot;&quot;&quot;</span>
+  <span class="n">Ro</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getModifiedCorrelation</span><span class="p">()</span>
+  <span class="n">Lo</span><span class="p">,</span> <span class="n">ierr</span> <span class="o">=</span> <span class="n">CholeskyDecomposition</span><span class="p">(</span><span class="n">Ro</span><span class="p">)</span>
+  <span class="k">if</span>  <span class="n">ierr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Error: Cholesky decomposition&#39;</span><span class="p">,</span><span class="n">ierr</span>
+
+  <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">setLowerTriangularMatrix</span><span class="p">(</span><span class="n">Lo</span><span class="p">)</span>
+  <span class="n">iLo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Lo</span><span class="p">)</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">setInvLowerTriangularMatrix</span><span class="p">(</span><span class="n">iLo</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="CholeskyDecomposition"><a class="viewcode-back" href="../../calculations.html#pyre.cholesky.CholeskyDecomposition">[docs]</a><span class="k">def</span> <span class="nf">CholeskyDecomposition</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Cholesky Decomposition</span>
+
+<span class="sd">  The Cholesky decomposition of a Hermitian positive-definite matrix</span>
+<span class="sd">  :math:`{\\bf A}` is a decomposition of the form</span>
+
+<span class="sd">  .. math::</span>
+
+<span class="sd">     \\mathbf{A = L L}^{*}</span>
+
+<span class="sd">  where :math:`{\\bf L}` is a lower triangular matrix with positive diagonal</span>
+<span class="sd">  entries, and :math:`{\\bf L}^*` denotes the conjugate transpose of</span>
+<span class="sd">  :math:`{\\bf L}`. Every Hermitian positive-definite matrix (and thus also</span>
+<span class="sd">  every real-valued symmetric positive-definite matrix) has a unique Cholesky</span>
+<span class="sd">  decomposition.</span>
+
+<span class="sd">  If the matrix :math:`{\\bf A}` is Hermitian and positive semi-definite, then</span>
+<span class="sd">  it still has a decomposition of the form :math:`{\\bf A} = {\\bf LL}^*` if</span>
+<span class="sd">  the diagonal entries of :math:`{\\bf L}` are allowed to be zero.</span>
+
+<span class="sd">  When :math:`{\\bf A}` has real entries, :math:`{\\bf L}` has real entries as</span>
+<span class="sd">  well.</span>
+
+<span class="sd">  The Cholesky decomposition is unique when :math:`{\\bf A}` is positive</span>
+<span class="sd">  definite; there is only one lower triangular matrix :math:`{\\bf L}` with</span>
+<span class="sd">  strictly positive diagonal entries such that :math:`{\\bf A} = {\\bf</span>
+<span class="sd">  LL}^*`. However, the decomposition need not be unique when :math:`{\\bf A}`</span>
+<span class="sd">  is positive semidefinite.</span>
+
+<span class="sd">  The converse holds trivially: if :math:`{\\bf A}` can be written as</span>
+<span class="sd">  :math:`{\\bf LL}^*` for some invertible :math:`{\\bf L}`, lower triangular or</span>
+<span class="sd">  otherwise, then A is Hermitian and positive definite.</span>
+
+<span class="sd">  :Args:</span>
+<span class="sd">    - A (mat): Hermitian positive-definite matrix :math:`{\\bf A}`</span>
+
+<span class="sd">  :Returns:</span>
+<span class="sd">    - Lo (mat): Returns a lower triangular matrix :math:`{\\bf L}` with positive diagonal entries</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">n</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+  <span class="n">ierr</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">ierr</span> <span class="o">=</span> <span class="n">k</span>
+      <span class="k">print</span> <span class="s">&#39;Error: in Choleski decomposition - Matrix must be positive definite</span><span class="se">\n</span><span class="s">&#39;</span>
+      <span class="k">break</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">indx</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indx</span><span class="p">:</span>
+      <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+      <span class="n">indx</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indx</span><span class="p">:</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+  <span class="n">Lo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">Lo</span><span class="p">,</span> <span class="n">ierr</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/Logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">PyRe 5.0.2 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Juergen Hackl.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

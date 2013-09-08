@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1. Introduction &mdash; PyRe 5.0.1 documentation</title>
+    <title>1. Introduction &mdash; PyRe 5.0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '5.0.1',
+        VERSION:     '5.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="PyRe 5.0.1 documentation" href="index.html" />
+    <link rel="top" title="PyRe 5.0.2 documentation" href="index.html" />
     <link rel="next" title="2. Installation" href="install.html" />
     <link rel="prev" title="PyRe documentation" href="index.html" /> 
   </head>
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="index.html" title="PyRe documentation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -61,7 +61,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">11 May 2013</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">September 2013</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Authors:</th><td class="field-body">Jürgen Hackl</td>
 </tr>
@@ -73,16 +73,10 @@
 </tr>
 <tr class="field-even field"><th class="field-name">License:</th><td class="field-body">PyRe is released under the GNU General Public Licence.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body">5.0.1</td>
+<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body">5.0.2</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p>This is a preliminary program code!</p>
-<p class="last">I wrote <tt class="docutils literal"><span class="pre">pyre</span></tt> for my Master&#8217;s Thesis.
-The work isn&#8217;t finished yet, so changes in the code are very likely!</p>
-</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If you have any problems, found bugs in the code or have feature request
@@ -96,9 +90,9 @@ suite of problems. Along with core reliability analysis functionality, PyRe
 includes methods for summarizing output.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">At the moment only First-Order Reliability Methods are supported!
-Second-Order Reliability Methods and Monte Carlo Simulation will hopefully
-follow soon :)</p>
+<p class="last">At the moment First-Order Reliability Methods Crude Monte Carlo Simulation
+and Importance Sampling are supported! Second-Order Reliability Methods and
+some different sensitivity analysis will hopefully follow soon :)</p>
 </div>
 </div>
 <div class="section" id="history">
@@ -119,9 +113,10 @@ indices), Reliability-Based Design Optimization (RBDO) algorithm, Global
 Sensitivity Analysis and reliability assessment based on Support Vector
 Machine (SVM) surrogates, etc. Beyond the new methods implemented in this
 Matlab code. <a class="reference internal" href="references.html#bourinet2009">[Bourinet2009]</a></p>
-<p>Of the purpose, to use structural reliability analysis for the project &#8220;Risk
-based decision framework for the optimal management of aging reinforced
-concrete structures&#8221; <a class="reference internal" href="references.html#hackl2013">[Hackl2013]</a> a python version of FERUM has been created.</p>
+<p>Of the purpose, to use structural reliability analysis for the project
+&#8220;Generic Framework for Stochastic Modeling of Reinforced Concrete
+Deterioration Caused by Corrosion&#8221; <a class="reference internal" href="references.html#hackl2013">[Hackl2013]</a> a python version of FERUM has
+been created.</p>
 <p>The focus here lies on the reliability analysis and not more on the finite
 element method, so only the core function of FERUM are implemented.</p>
 </div>
@@ -130,7 +125,7 @@ element method, so only the core function of FERUM are implemented.</p>
 <p>PyRe provides functionalities to make structural reliability analysis as easy
 as possible. Here is a short list of some of its features:</p>
 <ul class="simple">
-<li>Perform reliability analysis with First-Order Reliability Methods</li>
+<li>Perform reliability analysis with different kinds of Reliability Methods.</li>
 <li>Includes a large suite of well-documented statistical distributions.</li>
 <li>Uses NumPy for numerics wherever possible.</li>
 <li>No limitation on the limit state function</li>
@@ -212,7 +207,7 @@ available.</p>
         <li class="right" >
           <a href="index.html" title="PyRe documentation"
              >previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

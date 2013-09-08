@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>PyRe documentation &mdash; PyRe 5.0.1 documentation</title>
+    <title>PyRe documentation &mdash; PyRe 5.0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '5.0.1',
+        VERSION:     '5.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="PyRe 5.0.1 documentation" href="#" />
+    <link rel="top" title="PyRe 5.0.2 documentation" href="#" />
     <link rel="next" title="1. Introduction" href="README.html" /> 
   </head>
   <body>
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="README.html" title="1. Introduction"
              accesskey="N">next</a> |</li>
-        <li><a href="#">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="#">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -80,39 +80,54 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">4. Theoretical Background</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="theory.html#reliability">4.1. Reliability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory.html#cholesky-decomposition">4.2. Cholesky decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="theory.html#gauss-base-points-and-weight-factors">4.3. Gauss base points and weight factors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html#structural-reliability">4.1. Structural Reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html#probability-transformation">4.2. Probability Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html#first-order-reliability-method-form">4.3. First-Order Reliability Method (FORM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html#second-order-reliability-method-form">4.4. Second-Order Reliability Method (FORM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html#simulation-methods">4.5. Simulation Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html#crude-monte-carlo-simulation">4.6. Crude Monte Carlo Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html#importance-sampling">4.7. Importance Sampling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">5. Reliability Model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="model.html#module-pyre.model">5.1. Inputparameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#options">5.1. Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#inputparameter">5.2. Inputparameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#limit-state">5.3. Limit State</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="calculations.html">6. Calculations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="calculations.html#reliability">6.1. Reliability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calculations.html#matrices-operators">6.2. Matrices Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calculations.html#module-pyre.quadrature">6.3. Numerical Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">6. Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#module-pyre.form">6.1. First-Order Reliability Method (FORM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#second-order-reliability-method-sorm">6.2. Second-Order Reliability Method (SORM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#monte-carlo-simulation-mc">6.3. Monte Carlo Simulation (MC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#crude-monte-carlo-simulation-cmc">6.4. Crude Monte Carlo Simulation (CMC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#importance-sampling-is">6.5. Importance Sampling (IS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#distribution-analysis">6.6. Distribution Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="distributions.html">7. Probability distributions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#normal-distribution">7.1. Normal distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#lognormal-distribution">7.2. Lognormal distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#gamma-distribution">7.3. Gamma distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#shifted-exponential-distribution">7.4. Shifted exponential distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#shifted-rayleigh-distribution">7.5. Shifted Rayleigh distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#uniform-distribution">7.6. Uniform distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#beta-distribution">7.7. Beta distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#chi-square-distribution">7.8. Chi square distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-i-largest-value-distribution">7.9. Type I largest value distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-i-smallest-value-distribution">7.10. Type I smallest value distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-ii-largest-value-distribution">7.11. Type II largest value distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-iii-smallest-value-distribution">7.12. Type III smallest value distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#gumbel-distribution">7.13. Gumbel distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributions.html#weibull-distribution">7.14. Weibull distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculations.html">7. Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calculations.html#matrices-operators">7.1. Matrices Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculations.html#module-pyre.quadrature">7.2. Numerical Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculations.html#module-pyre.stepsize">7.3. Limit State</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">8. List of References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">8. Probability distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#normal-distribution">8.1. Normal distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#lognormal-distribution">8.2. Lognormal distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#gamma-distribution">8.3. Gamma distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#shifted-exponential-distribution">8.4. Shifted exponential distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#shifted-rayleigh-distribution">8.5. Shifted Rayleigh distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#uniform-distribution">8.6. Uniform distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#beta-distribution">8.7. Beta distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#chi-square-distribution">8.8. Chi square distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-i-largest-value-distribution">8.9. Type I largest value distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-i-smallest-value-distribution">8.10. Type I smallest value distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-ii-largest-value-distribution">8.11. Type II largest value distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#type-iii-smallest-value-distribution">8.12. Type III smallest value distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#gumbel-distribution">8.13. Gumbel distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributions.html#weibull-distribution">8.14. Weibull distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">9. List of References</a></li>
 </ul>
 </div>
 </div>
@@ -179,7 +194,7 @@
         <li class="right" >
           <a href="README.html" title="1. Introduction"
              >next</a> |</li>
-        <li><a href="#">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="#">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

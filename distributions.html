@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>7. Probability distributions &mdash; PyRe 5.0.1 documentation</title>
+    <title>8. Probability distributions &mdash; PyRe 5.0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '5.0.1',
+        VERSION:     '5.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,9 +26,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="PyRe 5.0.1 documentation" href="index.html" />
-    <link rel="next" title="8. List of References" href="references.html" />
-    <link rel="prev" title="6. Calculations" href="calculations.html" /> 
+    <link rel="top" title="PyRe 5.0.2 documentation" href="index.html" />
+    <link rel="next" title="9. List of References" href="references.html" />
+    <link rel="prev" title="7. Calculations" href="calculations.html" /> 
   </head>
   <body>
     <div class="related">
@@ -41,12 +41,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="references.html" title="8. List of References"
+          <a href="references.html" title="9. List of References"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="calculations.html" title="6. Calculations"
+          <a href="calculations.html" title="7. Calculations"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -56,7 +56,7 @@
           <div class="body">
             
   <div class="section" id="probability-distributions">
-<span id="chap-distributions"></span><h1>7. Probability distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this headline">¶</a></h1>
+<span id="chap-distributions"></span><h1>8. Probability distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this headline">¶</a></h1>
 <p>PyRe provides a large suite of built-in probability distributions. For each distribution, it provides:</p>
 <ul class="simple">
 <li>A function that evaluates its marginal distribution.</li>
@@ -67,7 +67,7 @@
 <li>A function that transform from from x to u space.</li>
 </ul>
 <div class="section" id="normal-distribution">
-<h2>7.1. Normal distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.1. Normal distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.normal.</tt><tt class="descname">Normal</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/normal.html#Normal"><span class="viewcode-link">[source]</span></a></dt>
@@ -133,7 +133,7 @@
 
 </div>
 <div class="section" id="lognormal-distribution">
-<h2>7.2. Lognormal distribution<a class="headerlink" href="#lognormal-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.2. Lognormal distribution<a class="headerlink" href="#lognormal-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.lognormal.</tt><tt class="descname">Lognormal</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/lognormal.html#Lognormal"><span class="viewcode-link">[source]</span></a></dt>
@@ -193,7 +193,7 @@
 
 </div>
 <div class="section" id="gamma-distribution">
-<h2>7.3. Gamma distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.3. Gamma distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.gamma.</tt><tt class="descname">Gamma</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/gamma.html#Gamma"><span class="viewcode-link">[source]</span></a></dt>
@@ -253,7 +253,7 @@
 
 </div>
 <div class="section" id="shifted-exponential-distribution">
-<h2>7.4. Shifted exponential distribution<a class="headerlink" href="#shifted-exponential-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.4. Shifted exponential distribution<a class="headerlink" href="#shifted-exponential-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.shiftedexponential.</tt><tt class="descname">ShiftedExponential</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/shiftedexponential.html#ShiftedExponential"><span class="viewcode-link">[source]</span></a></dt>
@@ -313,7 +313,7 @@
 
 </div>
 <div class="section" id="shifted-rayleigh-distribution">
-<h2>7.5. Shifted Rayleigh distribution<a class="headerlink" href="#shifted-rayleigh-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.5. Shifted Rayleigh distribution<a class="headerlink" href="#shifted-rayleigh-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.shiftedrayleigh.</tt><tt class="descname">ShiftedRayleigh</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/shiftedrayleigh.html#ShiftedRayleigh"><span class="viewcode-link">[source]</span></a></dt>
@@ -373,7 +373,7 @@
 
 </div>
 <div class="section" id="uniform-distribution">
-<h2>7.6. Uniform distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.6. Uniform distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.uniform.</tt><tt class="descname">Uniform</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/uniform.html#Uniform"><span class="viewcode-link">[source]</span></a></dt>
@@ -433,7 +433,7 @@
 
 </div>
 <div class="section" id="beta-distribution">
-<h2>7.7. Beta distribution<a class="headerlink" href="#beta-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.7. Beta distribution<a class="headerlink" href="#beta-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.beta.</tt><tt class="descname">Beta</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>a=0</em>, <em>b=1</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/beta.html#Beta"><span class="viewcode-link">[source]</span></a></dt>
@@ -495,7 +495,7 @@
 
 </div>
 <div class="section" id="chi-square-distribution">
-<h2>7.8. Chi square distribution<a class="headerlink" href="#chi-square-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.8. Chi square distribution<a class="headerlink" href="#chi-square-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.chisquare.</tt><tt class="descname">ChiSquare</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv=None</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/chisquare.html#ChiSquare"><span class="viewcode-link">[source]</span></a></dt>
@@ -555,7 +555,7 @@
 
 </div>
 <div class="section" id="type-i-largest-value-distribution">
-<h2>7.9. Type I largest value distribution<a class="headerlink" href="#type-i-largest-value-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.9. Type I largest value distribution<a class="headerlink" href="#type-i-largest-value-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.typeilargestvalue.</tt><tt class="descname">TypeIlargestValue</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/typeilargestvalue.html#TypeIlargestValue"><span class="viewcode-link">[source]</span></a></dt>
@@ -615,7 +615,7 @@
 
 </div>
 <div class="section" id="type-i-smallest-value-distribution">
-<h2>7.10. Type I smallest value distribution<a class="headerlink" href="#type-i-smallest-value-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.10. Type I smallest value distribution<a class="headerlink" href="#type-i-smallest-value-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.typeismallestvalue.</tt><tt class="descname">TypeIsmallestValue</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/typeismallestvalue.html#TypeIsmallestValue"><span class="viewcode-link">[source]</span></a></dt>
@@ -675,7 +675,7 @@
 
 </div>
 <div class="section" id="type-ii-largest-value-distribution">
-<h2>7.11. Type II largest value distribution<a class="headerlink" href="#type-ii-largest-value-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.11. Type II largest value distribution<a class="headerlink" href="#type-ii-largest-value-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.typeiilargestvalue.</tt><tt class="descname">TypeIIlargestValue</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/typeiilargestvalue.html#TypeIIlargestValue"><span class="viewcode-link">[source]</span></a></dt>
@@ -735,7 +735,7 @@
 
 </div>
 <div class="section" id="type-iii-smallest-value-distribution">
-<h2>7.12. Type III smallest value distribution<a class="headerlink" href="#type-iii-smallest-value-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.12. Type III smallest value distribution<a class="headerlink" href="#type-iii-smallest-value-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.typeiiismallestvalue.</tt><tt class="descname">TypeIIIsmallestValue</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>epsilon=0</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/typeiiismallestvalue.html#TypeIIIsmallestValue"><span class="viewcode-link">[source]</span></a></dt>
@@ -796,7 +796,7 @@
 
 </div>
 <div class="section" id="gumbel-distribution">
-<h2>7.13. Gumbel distribution<a class="headerlink" href="#gumbel-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.13. Gumbel distribution<a class="headerlink" href="#gumbel-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.gumbel.</tt><tt class="descname">Gumbel</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/gumbel.html#Gumbel"><span class="viewcode-link">[source]</span></a></dt>
@@ -856,7 +856,7 @@
 
 </div>
 <div class="section" id="weibull-distribution">
-<h2>7.14. Weibull distribution<a class="headerlink" href="#weibull-distribution" title="Permalink to this headline">¶</a></h2>
+<h2>8.14. Weibull distribution<a class="headerlink" href="#weibull-distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
 <em class="property">class </em><tt class="descclassname">pyre.distributions.weibull.</tt><tt class="descname">Weibull</tt><big>(</big><em>name</em>, <em>mean</em>, <em>stdv</em>, <em>epsilon=0</em>, <em>input_type=None</em>, <em>startpoint=None</em><big>)</big><a class="reference internal" href="_modules/pyre/distributions/weibull.html#Weibull"><span class="viewcode-link">[source]</span></a></dt>
@@ -929,31 +929,31 @@
             </a></p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">7. Probability distributions</a><ul>
-<li><a class="reference internal" href="#normal-distribution">7.1. Normal distribution</a></li>
-<li><a class="reference internal" href="#lognormal-distribution">7.2. Lognormal distribution</a></li>
-<li><a class="reference internal" href="#gamma-distribution">7.3. Gamma distribution</a></li>
-<li><a class="reference internal" href="#shifted-exponential-distribution">7.4. Shifted exponential distribution</a></li>
-<li><a class="reference internal" href="#shifted-rayleigh-distribution">7.5. Shifted Rayleigh distribution</a></li>
-<li><a class="reference internal" href="#uniform-distribution">7.6. Uniform distribution</a></li>
-<li><a class="reference internal" href="#beta-distribution">7.7. Beta distribution</a></li>
-<li><a class="reference internal" href="#chi-square-distribution">7.8. Chi square distribution</a></li>
-<li><a class="reference internal" href="#type-i-largest-value-distribution">7.9. Type I largest value distribution</a></li>
-<li><a class="reference internal" href="#type-i-smallest-value-distribution">7.10. Type I smallest value distribution</a></li>
-<li><a class="reference internal" href="#type-ii-largest-value-distribution">7.11. Type II largest value distribution</a></li>
-<li><a class="reference internal" href="#type-iii-smallest-value-distribution">7.12. Type III smallest value distribution</a></li>
-<li><a class="reference internal" href="#gumbel-distribution">7.13. Gumbel distribution</a></li>
-<li><a class="reference internal" href="#weibull-distribution">7.14. Weibull distribution</a></li>
+<li><a class="reference internal" href="#">8. Probability distributions</a><ul>
+<li><a class="reference internal" href="#normal-distribution">8.1. Normal distribution</a></li>
+<li><a class="reference internal" href="#lognormal-distribution">8.2. Lognormal distribution</a></li>
+<li><a class="reference internal" href="#gamma-distribution">8.3. Gamma distribution</a></li>
+<li><a class="reference internal" href="#shifted-exponential-distribution">8.4. Shifted exponential distribution</a></li>
+<li><a class="reference internal" href="#shifted-rayleigh-distribution">8.5. Shifted Rayleigh distribution</a></li>
+<li><a class="reference internal" href="#uniform-distribution">8.6. Uniform distribution</a></li>
+<li><a class="reference internal" href="#beta-distribution">8.7. Beta distribution</a></li>
+<li><a class="reference internal" href="#chi-square-distribution">8.8. Chi square distribution</a></li>
+<li><a class="reference internal" href="#type-i-largest-value-distribution">8.9. Type I largest value distribution</a></li>
+<li><a class="reference internal" href="#type-i-smallest-value-distribution">8.10. Type I smallest value distribution</a></li>
+<li><a class="reference internal" href="#type-ii-largest-value-distribution">8.11. Type II largest value distribution</a></li>
+<li><a class="reference internal" href="#type-iii-smallest-value-distribution">8.12. Type III smallest value distribution</a></li>
+<li><a class="reference internal" href="#gumbel-distribution">8.13. Gumbel distribution</a></li>
+<li><a class="reference internal" href="#weibull-distribution">8.14. Weibull distribution</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="calculations.html"
-                        title="previous chapter">6. Calculations</a></p>
+                        title="previous chapter">7. Calculations</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="references.html"
-                        title="next chapter">8. List of References</a></p>
+                        title="next chapter">9. List of References</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/distributions.txt"
@@ -986,12 +986,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="references.html" title="8. List of References"
+          <a href="references.html" title="9. List of References"
              >next</a> |</li>
         <li class="right" >
-          <a href="calculations.html" title="6. Calculations"
+          <a href="calculations.html" title="7. Calculations"
              >previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

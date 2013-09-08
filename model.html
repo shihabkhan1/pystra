@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5. Reliability Model &mdash; PyRe 5.0.1 documentation</title>
+    <title>5. Reliability Model &mdash; PyRe 5.0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '5.0.1',
+        VERSION:     '5.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="PyRe 5.0.1 documentation" href="index.html" />
-    <link rel="next" title="6. Calculations" href="calculations.html" />
+    <link rel="top" title="PyRe 5.0.2 documentation" href="index.html" />
+    <link rel="next" title="6. Analysis" href="analysis.html" />
     <link rel="prev" title="4. Theoretical Background" href="theory.html" /> 
   </head>
   <body>
@@ -41,12 +41,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="calculations.html" title="6. Calculations"
+          <a href="analysis.html" title="6. Analysis"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="theory.html" title="4. Theoretical Background"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -57,23 +57,29 @@
             
   <div class="section" id="reliability-model">
 <span id="chap-model"></span><h1>5. Reliability Model<a class="headerlink" href="#reliability-model" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-pyre.model">
-<span id="inputparameter"></span><h2>5.1. Inputparameter<a class="headerlink" href="#module-pyre.model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="options">
+<h2>5.1. Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="pyre.model.AnalysisOptions">
 <em class="property">class </em><tt class="descclassname">pyre.model.</tt><tt class="descname">AnalysisOptions</tt><a class="reference internal" href="_modules/pyre/model.html#AnalysisOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.model.AnalysisOptions" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
+<dd><p>Options</p>
+<p>Options for the structural reliability analysis.</p>
+<dl class="attribute">
 <dt id="pyre.model.AnalysisOptions.Ro_method">
 <tt class="descname">Ro_method</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.Ro_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method for computation of the modified Nataf correlation matrix</p>
-<dl class="docutils">
-<dt>Ro_methods:</dt>
-<dd><ul class="first last simple">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Methods :</th><td class="field-body"><ul class="first last simple">
 <li>0: use of approximations from ADK&#8217;s paper (no longer supported)</li>
 <li>1: exact, solved numerically</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -87,10 +93,18 @@
 <dt id="pyre.model.AnalysisOptions.differentation_modus">
 <tt class="descname">differentation_modus</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.differentation_modus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kind of differentiation</p>
-<ul class="simple">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><ul class="first last simple">
 <li>&#8216;ddm&#8217;: direct differentiation,</li>
 <li>&#8216;ffd&#8217;: forward finite difference</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -111,28 +125,37 @@
 <dd><p>Parameter for computation</p>
 <p>Parameter for computation of FFD estimates of gradients - Perturbation =
 stdv/analysisopt.ffdpara</p>
-<dl class="docutils">
-<dt>Recommended values:</dt>
-<dd><ul class="first last simple">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Values :</th><td class="field-body"><ul class="first last simple">
 <li>1000 for basic limit-state functions,</li>
 <li>50 for FE-based limit-state functions</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pyre.model.AnalysisOptions.flag_sens">
 <tt class="descname">flag_sens</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.flag_sens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for computation of sensitivities</p>
-<dl class="docutils">
-<dt>w.r.t. means, standard deviations, parameters and correlation coefficients</dt>
-<dd><ul class="first last simple">
+<p>w.r.t. means, standard deviations, parameters and correlation coefficients</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Flag :</th><td class="field-body"><ul class="first last simple">
 <li>1: all sensitivities assessed,</li>
 <li>0: no sensitivities assessment</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -164,10 +187,67 @@ of PCs or any other multiprocessor computer platform.</li>
 <dt id="pyre.model.AnalysisOptions.print_output">
 <tt class="descname">print_output</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.print_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print comments during calculation</p>
-<ul class="simple">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Values :</th><td class="field-body"><ul class="first last simple">
 <li>True: FERUM interactive mode,</li>
 <li>False: FERUM silent mode</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyre.model.AnalysisOptions.random_generator">
+<tt class="descname">random_generator</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.random_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kind of Random generator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><ul class="first last simple">
+<li>0: default rand matlab function,</li>
+<li>1: Mersenne Twister (to be preferred)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyre.model.AnalysisOptions.samples">
+<tt class="descname">samples</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of samples (MC,IS)</p>
+<p>Number of samples per subset step (SS) or number of directions (DS)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyre.model.AnalysisOptions.sim_point">
+<tt class="descname">sim_point</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.sim_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start point for the simulation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Start :</th><td class="field-body"><ul class="first last simple">
+<li>&#8216;dspt&#8217;: design point,</li>
+<li>&#8216;origin&#8217;: origin in standard normal space (simulation analysis)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyre.model.AnalysisOptions.stdv_sim">
+<tt class="descname">stdv_sim</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.stdv_sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard deviation of sampling distribution in simulation analysis</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -178,39 +258,60 @@ of PCs or any other multiprocessor computer platform.</li>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="pyre.model.AnalysisOptions.target_cov">
+<tt class="descname">target_cov</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.target_cov" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target coefficient of variation for failure probability</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="pyre.model.AnalysisOptions.transf_type">
 <tt class="descname">transf_type</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.AnalysisOptions.transf_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Type of joint distribution</p>
-<dl class="docutils">
-<dt>transf_types:</dt>
-<dd><ul class="first last simple">
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type :</th><td class="field-body"><ul class="first last simple">
 <li>1: jointly normal (no longer supported)</li>
 <li>2: independent non-normal (no longer supported)</li>
 <li>3: Nataf joint distribution (only available option)</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
 
+</div>
+<div class="section" id="inputparameter">
+<h2>5.2. Inputparameter<a class="headerlink" href="#inputparameter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyre.model.StochasticModel">
+<em class="property">class </em><tt class="descclassname">pyre.model.</tt><tt class="descname">StochasticModel</tt><a class="reference internal" href="_modules/pyre/model.html#StochasticModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.model.StochasticModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stochastic model</p>
+</dd></dl>
+
+</div>
+<div class="section" id="limit-state">
+<h2>5.3. Limit State<a class="headerlink" href="#limit-state" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="pyre.model.LimitState">
 <em class="property">class </em><tt class="descclassname">pyre.model.</tt><tt class="descname">LimitState</tt><a class="reference internal" href="_modules/pyre/model.html#LimitState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.model.LimitState" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
+<dd><p>Limit state</p>
+<dl class="attribute">
 <dt id="pyre.model.LimitState.evaluator">
 <tt class="descname">evaluator</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.LimitState.evaluator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Type of limit-state function evaluator:</p>
-<dl class="docutils">
-<dt>&#8216;basic&#8217;: the limit-state function is defined by means of an analytical</dt>
-<dd>expression or a Matlab m-function, using
-gfundata(lsf).expression. The function gfun.m calls gfunbasic.m,
-which evaluates gfundata(lsf).expression.</dd>
-<dt>&#8216;xxx&#8217;:   the limit-state function evaluation requires a call to an</dt>
-<dd>external code.  The function gfun.m calls gfunxxx.m, which
-evaluates gfundata(lsf).expression where gext variable is a
-result of the external code.</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Args :</th><td class="field-body">basic: the limit-state function is defined by means of an analytical expression or a Python function.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -223,22 +324,22 @@ result of the external code.</dd>
 <dt id="pyre.model.LimitState.flag_sens">
 <tt class="descname">flag_sens</tt><em class="property"> = None</em><a class="headerlink" href="#pyre.model.LimitState.flag_sens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flag for computation of sensitivities</p>
-<dl class="docutils">
-<dt>w.r.t. thetag parameters of the limit-state function</dt>
-<dd><ul class="first last simple">
+<p>w.r.t. Tag parameters of the limit-state function</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Tag :</th><td class="field-body"><ul class="first last simple">
 <li>1: all sensitivities assessed,</li>
 <li>0: no sensitivities assessment</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
-
-<dl class="class">
-<dt id="pyre.model.StochasticModel">
-<em class="property">class </em><tt class="descclassname">pyre.model.</tt><tt class="descname">StochasticModel</tt><a class="reference internal" href="_modules/pyre/model.html#StochasticModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.model.StochasticModel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </div>
 </div>
@@ -255,7 +356,9 @@ result of the external code.</dd>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">5. Reliability Model</a><ul>
-<li><a class="reference internal" href="#module-pyre.model">5.1. Inputparameter</a></li>
+<li><a class="reference internal" href="#options">5.1. Options</a></li>
+<li><a class="reference internal" href="#inputparameter">5.2. Inputparameter</a></li>
+<li><a class="reference internal" href="#limit-state">5.3. Limit State</a></li>
 </ul>
 </li>
 </ul>
@@ -264,8 +367,8 @@ result of the external code.</dd>
   <p class="topless"><a href="theory.html"
                         title="previous chapter">4. Theoretical Background</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="calculations.html"
-                        title="next chapter">6. Calculations</a></p>
+  <p class="topless"><a href="analysis.html"
+                        title="next chapter">6. Analysis</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/model.txt"
@@ -298,12 +401,12 @@ result of the external code.</dd>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="calculations.html" title="6. Calculations"
+          <a href="analysis.html" title="6. Analysis"
              >next</a> |</li>
         <li class="right" >
           <a href="theory.html" title="4. Theoretical Background"
              >previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. Theoretical Background &mdash; PyRe 5.0.1 documentation</title>
+    <title>4. Theoretical Background &mdash; PyRe 5.0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '5.0.1',
+        VERSION:     '5.0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="PyRe 5.0.1 documentation" href="index.html" />
+    <link rel="top" title="PyRe 5.0.2 documentation" href="index.html" />
     <link rel="next" title="5. Reliability Model" href="model.html" />
     <link rel="prev" title="3. Tutorial" href="tutorial.html" /> 
   </head>
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="tutorial.html" title="3. Tutorial"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -56,91 +56,362 @@
           <div class="body">
             
   <div class="section" id="theoretical-background">
-<span id="chap-mcmc"></span><h1>4. Theoretical Background<a class="headerlink" href="#theoretical-background" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="reliability">
-<h2>4.1. Reliability<a class="headerlink" href="#reliability" title="Permalink to this headline">¶</a></h2>
-<p>Structural reliability analysis is concerned with the rational treatment of
-uncertainties <a class="reference internal" href="references.html#melchers1999">[Melchers1999]</a>. These uncertainties could be broadly grouped
-into three. Thoft- Christensen and Baker (1982) classified them into physical
-uncertainties, statistical uncertainties and model uncertainties.</p>
-<p>The order of the listed uncertainties corresponds approximately to the
-decreasing level of current knowledge and available theoretical tools for
-their description and consideration in design. Most of the uncertainties can
-never be eliminated absolutely and must be taken into account by engineers
-when designing any construction work <a class="reference internal" href="references.html#melchers1999">[Melchers1999]</a>.</p>
+<span id="chap-theo"></span><h1>4. Theoretical Background<a class="headerlink" href="#theoretical-background" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="structural-reliability">
+<h2>4.1. Structural Reliability<a class="headerlink" href="#structural-reliability" title="Permalink to this headline">¶</a></h2>
+<p>Structural reliability analysis (SRA) is an important part to handle
+structural engineering applications. This section provides a brief
+introduction to this topic and is also the theoretical background for the
+Python library, Structural Reliability Analysis with Python (PyRe).</p>
+<div class="section" id="limit-states">
+<h3>4.1.1. Limit States<a class="headerlink" href="#limit-states" title="Permalink to this headline">¶</a></h3>
+<p>The word structural reliability refers to the meaning &#8220;how
+much reliable is a structure in terms of fulfilling its
+purpose&#8221; <a class="reference internal" href="references.html#malioka2009">[Malioka2009]</a>. The performance of structures and engineering
+systems was based on deterministic parameters even for a long time, even if it
+was known that all stages of the system involve uncertainties. SRA provides a
+method to take those uncertainties into account in a consistent manner. In
+this content the term probability of failure is more common than
+reliability. <a class="reference internal" href="references.html#malioka2009">[Malioka2009]</a></p>
+<p>In general, the term &#8220;failure&#8221; is a vague definition because it means
+different things in different cases. For this purpose the concept of limit
+state is used to define failure in the context of SRA. <a class="reference internal" href="references.html#nowak2000">[Nowak2000]</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A limit state represents a boundary between desired and undesired
+performance of a structure.</p>
+</div>
+<p>This boundary is usually interpreted and formulated within a mathematical
+model for the functionality and performance of a structural system, and
+expressed by a limit state function. <a class="reference internal" href="references.html#ditlevsen2007">[Ditlevsen2007]</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>[Limit State Function]</p>
+<p>Let <span class="math">\({\bf X}\)</span> describe a set of random variables <span class="math">\({X}_1
+\dots {X}_n\)</span> which influence the performance of a structure. Then the
+functionality of the structure is called limit state function, denoted by
+<span class="math">\(g\)</span> and given by</p>
+<div class="last math" id="equation-eq:2_69">
+<span class="eqno">(1)</span>\[        g({\bf X})=g(X_1,\dots,X_n)\]</div>
+</div>
+<p>The boundary between desired and undesired performance would be given when
+<span class="math">\(g({\bf X}) = 0\)</span>. If <span class="math">\(g({\bf X}) &gt; 0\)</span>, it implies a desired
+performance and the structure is safe. An undesired performance is given by
+<span class="math">\(g({\bf X}) \leq 0\)</span> and it implies an unsafe structure or failure of the
+system. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a></p>
+<p>The probability of failure <span class="math">\(p_f\)</span> is equal to the probability that an
+undesired performance will occur. It can be mathematical expressed as</p>
+<div class="math" id="equation-eq:2_70">
+<span class="eqno">(2)</span>\[        p_f = P(g({\bf X})\leq 0) = \iiint\limits_{g({\bf X})\leq 0} f_{{\bf
+        X}}({\bf x}) d {\bf x}\]</div>
+<p>assuming that all random variables <span class="math">\({\bf X}\)</span> are continuous. However,
+there are three major issues related to the Equation <a href="#equation-eq:2_70">(2)</a>, proposed
+by <a class="reference internal" href="references.html#baker2010">[Baker2010]</a>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>There is not always enough information to define the complete joint
+probability density function <span class="math">\(f_X({\bf x})\)</span>.</li>
+<li>The limit state function <span class="math">\(g({\bf X})\)</span> may be difficult to evaluate.</li>
+<li>Even if <span class="math">\(f_X({\bf x})\)</span> and <span class="math">\(g({\bf X})\)</span> are known, numerical
+computing of high dimensional integrals is difficult.</li>
+</ol>
+</div></blockquote>
+<p>For this reason various methods have been developed to overcome these chal-
+lenges. The most common ones are the Monte Carlo simulation method and the
+First Order Reliability Method (FORM).</p>
+</div>
+<div class="section" id="the-classical-approach">
+<h3>4.1.2. The Classical Approach<a class="headerlink" href="#the-classical-approach" title="Permalink to this headline">¶</a></h3>
+<p>Before discussing more general methods, the principles are shown on a
+&#8220;historical&#8221; and simplified limit state function.</p>
+<div class="math" id="equation-eq:2_71">
+<span class="eqno">(3)</span>\[        g(R,S) = R - S\]</div>
+<p>Where <span class="math">\(R\)</span> is a random variable for the resistance with the outcome
+<span class="math">\(r\)</span> and <span class="math">\(S\)</span> represents a random variable for the internal strength
+or stress with the outcome of <span class="math">\(s\)</span>. <a class="reference internal" href="references.html#lemaire2010">[Lemaire2010]</a> The probability of
+failure is according to Equation <a href="#equation-eq:2_70">(2)</a>:</p>
+<div class="math" id="equation-eq:2_72">
+<span class="eqno">(4)</span>\[        p_f = P(R-S \leq 0) = \iint\limits_{r\leq s} f_{R,S}(r,s) d r d s\]</div>
+<p>If <span class="math">\(R\)</span> and <span class="math">\(S\)</span> are independent the Equation <a href="#equation-eq:2_72">(4)</a> can be
+rewritten as a convolution integral, where the probability of failure
+<span class="math">\(p_f\)</span> can be (numerical) computed. <a class="reference internal" href="references.html#schneider2007">[Schneider2007]</a></p>
+<div class="math" id="equation-eq:2_73">
+<span class="eqno">(5)</span>\[          p_f = P(R-S \leq 0) = \int_{-\infty}^{\infty} F_R(x) f_{S}(x) d x\]</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-07-a.png"><img alt="Classical Approach R − S." src="_images/f-02-07-a.png" style="width: 538.0px; height: 214.5px;" /></a>
+</div>
+<p>If <span class="math">\(R\)</span> and <span class="math">\(S\)</span> are independent and <span class="math">\(R \sim N (\mu_R ,
+\sigma_R )\)</span> as well as <span class="math">\(S \sim N (\mu_S , \sigma_S )\)</span> are
+normally distributed, the convolution integral <a href="#equation-eq:2_73">(5)</a> can be evaluated
+analytically.</p>
+<div class="math" id="equation-eq:2_74">
+<span class="eqno">(6)</span>\[        M = R - S\]</div>
+<p>where <span class="math">\(M\)</span> is the safety margin and also normal distributed <span class="math">\(M \sim N
+(\mu_M , \sigma_M )\)</span> with the parameters</p>
+<div class="math" id="equation-eq:2_75">
+<span class="eqno">(7)</span>\[        \mu_M = \mu_R-\mu_S\]</div>
+<div class="math" id="equation-eq:2_76">
+<span class="eqno">(8)</span>\[        \sigma_M = \sqrt{\sigma_R^2+\sigma_S^2}\]</div>
+<p>The probability of failure <span class="math">\(p_f\)</span> can be determined by the use of the
+standard normal distribution function.</p>
+<div class="math" id="equation-eq:2_77">
+<span class="eqno">(9)</span>\[        p_f = \Phi\left(\frac{0-\mu_m}{\sigma_M}\right)=\Phi(-\beta)\]</div>
+<p>Where <span class="math">\(\beta\)</span> is the so called Cornell reliability index, named after
+Cornell (1969), and is equal to the number of the standard derivation
+<span class="math">\(\sigma_M\)</span> by which the mean values <span class="math">\(\mu_M\)</span> of the safety margin
+<span class="math">\(M\)</span> are zero. <a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-08-a.png"><img alt="Safety Margin an Reliability Index" src="_images/f-02-08-a.png" style="width: 546.5px; height: 355.0px;" /></a>
+</div>
+</div>
+<div class="section" id="hasofer-and-lind-reliability-index">
+<h3>4.1.3. Hasofer and Lind Reliability Index<a class="headerlink" href="#hasofer-and-lind-reliability-index" title="Permalink to this headline">¶</a></h3>
+<p>The reliability index can be interpreted as a measure of the distance to the
+failure surface, as shown in the Figure above. In the one dimensional case the
+standard deviation of the safety margin was used as scale. To obtain a similar
+scale in the case of more basic variables, Hasofer and Lind (1974) proposed a
+non-homogeneous linear mapping of a set of random variables <span class="math">\({\bf X}\)</span>
+from a physical space into a set of normalized and uncorrelated random
+variables <span class="math">\({\bf Z}\)</span> in a normalized space. <a class="reference internal" href="references.html#madsen2006">[Madsen2006]</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>[Hasofer and Lind Reliability Index]</p>
+<p>The Hasofer and Lind reliability index, denoted by <span class="math">\(\beta_{HL}\)</span>, is
+the shortest distance <span class="math">\({\bf z}^*\)</span> from the origin to the failure
+surface <span class="math">\(g({\bf Z})\)</span> in a normalized space.</p>
+<div class="last math" id="equation-eq:2_78">
+<span class="eqno">(10)</span>\[        \beta_{HL}:=\beta={\vec\alpha}^T{\bf z}^*\]</div>
+</div>
+<p>The shortest distance to the failure surface <span class="math">\({\bf z}^*\)</span> is also known
+as design point and <span class="math">\({\vec \alpha}\)</span> denotes the normal vector to the
+failure surface <span class="math">\(g({\bf Z})\)</span> and is given by</p>
+<div class="math" id="equation-eq:2_79">
+<span class="eqno">(11)</span>\[        {\vec\alpha} = - \frac{\nabla g({\bf z}^*)}{|\nabla g({\bf z}^*)|}\]</div>
+<p>where <span class="math">\(g({\bf z})\)</span> is the gradient vector, which is assumed to exist:
+<a class="reference internal" href="references.html#madsen2006">[Madsen2006]</a></p>
+<div class="math" id="equation-eq:2_80">
+<span class="eqno">(12)</span>\[        \nabla g({\bf z}) = \left (\frac{\partial g}{\partial z_1}({\bf
+        z}),\ldots, \frac{\partial g}{\partial z_n}({\bf z})\right)\]</div>
+<p>Finding the reliability index <span class="math">\(\beta\)</span> is therefore an optimization
+problem</p>
+<div class="math" id="equation-eq:2_81">
+<span class="eqno">(13)</span>\[        \min_x \, |{\bf z}|\,: \, g({\bf z})=0\]</div>
+<p>The calculation of <span class="math">\(\beta\)</span> can be undertaken in a number of different
+ways. In the general case where the failure surface is non-linear, an
+iterative method must be used. <a class="reference internal" href="references.html#thoft-christensen">[Thoft-Christensen]</a></p>
+</div>
+</div>
+<div class="section" id="probability-transformation">
+<h2>4.2. Probability Transformation<a class="headerlink" href="#probability-transformation" title="Permalink to this headline">¶</a></h2>
+<p>Due to the reliability index <span class="math">\(\beta_{HL}\)</span> , being only defined in a
+normalized space, the basic random variables <span class="math">\(\bf X\)</span> have to be
+transformed into standard normal random variables <span class="math">\(\bf Z\)</span>. Additionally,
+the basic random variables <span class="math">\(\bf Z\)</span> can be correlated and those
+relationships should also be transformed.</p>
+<div class="section" id="transformation-of-dependent-random-variables-using-nataf-approach">
+<h3>4.2.1. Transformation of Dependent Random Variables using Nataf Approach<a class="headerlink" href="#transformation-of-dependent-random-variables-using-nataf-approach" title="Permalink to this headline">¶</a></h3>
+<p>One method to handle this is using the Nataf joint distribution model, if the
+marginal cdfs are known. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a> The correlated random variables
+<span class="math">\({\bf X} = ( X_1 , \dots , X_n )\)</span> with the correlation matrix <span class="math">\(\bf
+R\)</span> can be transformed by</p>
+<div class="math" id="equation-eq:2_82">
+<span class="eqno">(14)</span>\[        y_i=\Phi^{-1}\left(F_{X_{i}}(x_i)\right) \qquad i = 1,\dots,n\]</div>
+<p>into normally distributed random variables <span class="math">\(\bf Y\)</span> with zero means and
+unit variance, but still correlated with <span class="math">\({\bf R}_0\)</span> . Nataf’s
+distribution for <span class="math">\(\bf X\)</span> is obtained by assuming that <span class="math">\(\bf Y\)</span> is
+jointly normal. <a class="reference internal" href="references.html#liu1986">[Liu1986]</a></p>
+<p>The correlation coefficients for <span class="math">\(\bf X\)</span> and <span class="math">\(\bf Y\)</span> are related by</p>
+<div class="math" id="equation-eq:2_83">
+<span class="eqno">(15)</span>\[        \rho_{X_i,X_j} =
+        \int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty}
+        \left(\frac{x_i-\mu_{X_i}}{\sigma_{X_i}}\right)
+        \left(\frac{x_j-\mu_{X_j}}{\sigma_{X_j}}\right)
+        \frac{1}{2\pi \sqrt{1-\rho_{Y_i,Y_j}^2}}
+        \exp\left(-\frac{y_i^2-2\rho_{Y_i,Y_j}y_iy_j+y_j^2}{2(1-\rho_{Y_i,Y_j}^2)}\right) d z_i d z_j\]</div>
+<p>Once this is done, the transformation from the correlated normal random
+variables <span class="math">\(\bf Y\)</span> to uncorrelated normal random variables <span class="math">\(\bf Z\)</span>
+is addressed. Hence, the transformation is</p>
+<div class="math" id="equation-eq:2_84">
+<span class="eqno">(16)</span>\[        {\bf z}={\bf L}_0^{-1}{\bf y} \quad \Leftrightarrow \quad {\bf y} =
+        {\bf L}_0{\bf z}\]</div>
+<p>where <span class="math">\(\bf L\)</span> is the Cholesky decomposition of the correlation matrix
+<span class="math">\(\bf R\)</span> of <span class="math">\(\bf Y\)</span>. The Jacobian matrix, denoted by <span class="math">\(\bf J\)</span>,
+for the transformation is given by</p>
+<div class="math" id="equation-eq:2_85">
+<span class="eqno">(17)</span>\[        {\bf J}_{ZX} = \frac{\partial {\bf z}}{\partial {\bf x}} = {\bf
+        L}_0^{-1}\text{diag} \left(\frac{f_{X_i}(x_i)}{\Phi (z_i)}\right)\]</div>
+<p>This approach is useful when the marginal distribution for the random
+variables <span class="math">\(\bf X\)</span> is known and the knowledge about the variables
+dependence is limited to correlation coefficients. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a></p>
+</div>
+<div class="section" id="transformation-of-dependent-random-variables-using-rosenblatt-approach">
+<h3>4.2.2. Transformation of Dependent Random Variables using Rosenblatt Approach<a class="headerlink" href="#transformation-of-dependent-random-variables-using-rosenblatt-approach" title="Permalink to this headline">¶</a></h3>
+<p>An alternative to the Nataf approach is to consider the joint pdf of
+<span class="math">\(\bf X\)</span> as a product of conditional pdfs.</p>
+<div class="math" id="equation-eq:2_86">
+<span class="eqno">(18)</span>\[        f_{{\bf X}}({\bf x}) = f_{X_1}(x_1) f_{X_2|X_1}(x_2|x_1) \dots
+        f_{X_n|X_1,\dots,X_{n-1}}(x_n|x_1,\dots,x_{n-1})\]</div>
+<p>As a result of the sequential conditioning in the pdf, the conditional cdfs
+are given for <span class="math">\(i \in [1,n]\)</span></p>
+<div class="math" id="equation-eq:2_87">
+<span class="eqno">(19)</span>\[        F_{X_i|X_1,\dots,X_{i-1}}(x_i|x_1,\dots,x_{i-1}) =
+        \int_{-\infty}^{x_i}
+        f_{X_i|X_1,\dots,X_{i-1}}(x_i|x_1,\dots,x_{i-1}) d x_i\]</div>
+<p>These conditional distributions for the random variables <span class="math">\(\bf X\)</span> can be
+transformed into standard normal marginal distributions for the variables
+<span class="math">\(\bf Z\)</span>, using the so called Rosenblatt transformation
+<a class="reference internal" href="references.html#rosenblatt1952">[Rosenblatt1952]</a>, suggested by Hohenbichler and Rackwitz (1981).</p>
+<div class="math" id="equation-eq:2_88">
+<span class="eqno">(20)</span>\[\begin{split}        \begin{split}
+        z_1 &amp;= \Phi^{-1}\left( F_{X_1}(x_1) \right)\\
+        z_2 &amp;= \Phi^{-1}\left( F_{X_2|X_1}(x_2|x_1) \right)\\
+        &amp;\vdots\\
+        z_n &amp;= \Phi^{-1}\left(
+        F_{X_n|X_1,\dots,X_{n-1}}(x_n|x_1,\dots,x_{n-1}) \right)
+        \end{split}\end{split}\]</div>
+<p>The Jacobian of this transformation is a lower triangular matrix having the
+elements [Baker2010]</p>
+<div class="math" id="equation-eq:2_89">
+<span class="eqno">(21)</span>\[\begin{split}        \left[{\bf J}_{ZX}\right]_{i,j} = \frac{\partial z_i}{\partial x_j} =
+        \begin{cases}\displaystyle
+        \frac{1}{\Phi(u_i)}\frac{\partial}{\partial x_j}
+        F_{X_i|X_1,\dots,X_{i-1}}(x_i|x_1,\dots,x_{i-1}) &amp; i \geq j\\
+        0 &amp; i &lt; j
+        \end{cases}\end{split}\]</div>
+<p>In some cases the Rosenblatt transformation cannot be applied, because the
+required conditional pdfs cannot be provided. In this case other
+transformations may be useful, for example Nataf transformation.
+<a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+</div>
+</div>
 <div class="section" id="first-order-reliability-method-form">
-<h3>4.1.1. First-Order Reliability Method (FORM)<a class="headerlink" href="#first-order-reliability-method-form" title="Permalink to this headline">¶</a></h3>
-<p>First-Order Reliability Method (FORM) aims at using a first-order
-approximation of the limit-state function in the standard space at the
-so-called Most Probable Point (MPP) of failure <span class="math">\(P^*\)</span> (ordesign point),
-which is the limit-state surface closest point to the origin. Finding the
-coordinates <span class="math">\({\bf u}^*\)</span> of the MPP consists in solving the following
-constrained optimization problem:</p>
-<div class="math">
-\[{\bf u} = \arg\min\left\{\|{\bf u}\| \left|g({\bf x}({\bf u}),{\bf \theta}_g) = G({\bf u},{\bf \theta}_g) = 0 \right. \right\}\]</div>
-<p>Once the MPP <span class="math">\(P^*\)</span> is obtained, the Hasofer and Lind reliability index
-<span class="math">\(\beta\)</span> is computed as <span class="math">\(\beta = {\bf \alpha}^T {\bf u}^*\)</span>
-where <span class="math">\({\bf \alpha} = -\nabla_u G({\bf u}^*) / \| \nabla_u G({\bf u}^*)\|\)</span>
-is the negative normalized gradient vector at the MPP P*. It represents the
-distance from the origin to the MPP in the standard space. The first-order
-approximation of the failure probability is then given by <span class="math">\(p_{f1} =
-\Phi(-\beta)\)</span>, where <span class="math">\(\Phi(\cdot)\)</span> is the standard normal cdf. The same
-technique is applied to step size evaluation with Armijo rule, where all
-corresponding g-calls are sent simultaneously. <a class="reference internal" href="references.html#bourinet2010">[Bourinet2010]</a></p>
-<div class="figure align-center" id="form">
-<a class="reference internal image-reference" href="_images/FORM.jpg"><img alt="First-Order Reliability Method." src="_images/FORM.jpg" style="width: 357.5px; height: 300.0px;" /></a>
+<h2>4.3. First-Order Reliability Method (FORM)<a class="headerlink" href="#first-order-reliability-method-form" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math">\(\bf Z\)</span> be a set of uncorrelated and standardized normally distributed random
+variables <span class="math">\(( Z_1 ,\dots, Z_n )\)</span> in the normalized z-space, corresponding
+to any set of random variables <span class="math">\({\bf X} = ( X_1 , \dots , X_n )\)</span> in the
+physical x-space, then the limit state surface in x-space is also mapped on
+the corresponding limit state surface in z-space.</p>
+<p>According to Definition <a href="#equation-eq:2_78">(10)</a>, the reliability index <span class="math">\(\beta\)</span> is
+the minimum distance from the z-origin to the failure surface. This distance
+<span class="math">\(\beta\)</span> can directly be mapped to a probability of failure</p>
+<div class="math" id="equation-eq:2_90">
+<span class="eqno">(22)</span>\[        p_f \approx p_{f1} = \Phi(-\beta)\]</div>
+<p>this corresponds to a linearization of the failure surface. The linearization point
+is the design point <span class="math">\({\bf z}^*\)</span>. This procedure is called First Order
+Reliability Method (FORM) and <span class="math">\(\beta\)</span> is the First Order Reliability
+Index. <a class="reference internal" href="references.html#madsen2006">[Madsen2006]</a></p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-09-a.png"><img alt="FORM a" src="_images/f-02-09-a.png" style="width: 230.0px; height: 281.5px;" /></a>
 </div>
+<p>Representation of a physical space with a set <span class="math">\({\bf X}\)</span> of any two
+random variables. The shaded area denotes the failure domain and
+<span class="math">\(g({\bf X}) = 0\)</span> the failure surface.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-09-b.png"><img alt="FORM b" src="_images/f-02-09-b.png" style="width: 227.0px; height: 281.5px;" /></a>
 </div>
-<div class="section" id="armijo-rule">
-<h3>4.1.2. Armijo Rule<a class="headerlink" href="#armijo-rule" title="Permalink to this headline">¶</a></h3>
-<p>Denote a univariate function <span class="math">\(\phi\)</span> restricted to the direction
-<span class="math">\(\mathbf{p}_k\)</span> as <span class="math">\(\phi(\alpha)=f(\mathbf{x}_k+\alpha\mathbf{p}_k)\)</span>.
-A step length <span class="math">\(\alpha_k\)</span> is said to satisfy the Wolfe conditions if the
-following two inequalities hold:</p>
-<div class="math">
-\[i) f(\mathbf{x}_k+\alpha_k\mathbf{p}_k)\leq
-   f(\mathbf{x}_k)+c_1\alpha_k\mathbf{p}_k^{\mathrm T}\nabla
-   f(\mathbf{x}_k)\]</div>
-<div class="math">
-\[ii) \mathbf{p}_k^{\mathrm T}\nabla f(\mathbf{x}_k+\alpha_k\mathbf{p}_k)
-    \geq c_2\mathbf{p}_k^{\mathrm T}\nabla f(\mathbf{x}_k)\]</div>
-<p>with <span class="math">\(0&lt;c_1&lt;c_2&lt;1\)</span>. (In examining condition (ii), recall that to ensure
-that <span class="math">\(\mathbf{p}_k\)</span> is a descent direction, we have
-<span class="math">\(\mathbf{p}_k^{\mathrm T}\nabla f(\mathbf{x}_k) &lt; 0\)</span> .)</p>
-<p><span class="math">\(c_1\)</span> is usually chosen to be quite small while <span class="math">\(c_2\)</span> is much
-larger; Nocedal gives example values of <span class="math">\(c_1=10^{-4}\)</span> and
-<span class="math">\(c_2=0.9\)</span> for Newton or quasi-Newton methods and <span class="math">\(c_2=0.1\)</span> for the
-nonlinear conjugate gradient method. Inequality i) is known as the Armijo rule
-and ii) as the curvature condition; i) ensures that the step length
-<span class="math">\(\alpha_k\)</span> decreases <span class="math">\(f\)</span> &#8216;sufficiently&#8217;, and ii) ensures that the
-slope has been reduced sufficiently.</p>
+<p>After
+transformation in the normalized space, the random variables <span class="math">\({\bf X}\)</span>
+are now uncorrelated and standardized normally distributed, also the failure
+surface is transformed into <span class="math">\(g({\bf Z}) = 0\)</span>.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-09-c.png"><img alt="FORM c" src="_images/f-02-09-c.png" style="width: 227.0px; height: 280.5px;" /></a>
 </div>
+<p>FORM corresponds to a linearization of the failure surface <span class="math">\(g({\bf Z}) =
+0\)</span>. Performing this method, the design point <span class="math">\({\bf z}^*\)</span> and the
+reliability index <span class="math">\(\beta\)</span> can be computed.</p>
 </div>
-<div class="section" id="cholesky-decomposition">
-<h2>4.2. Cholesky decomposition<a class="headerlink" href="#cholesky-decomposition" title="Permalink to this headline">¶</a></h2>
-<p>The Cholesky decomposition of a Hermitian positive-definite matrix A is a
-decomposition of the form</p>
-<div class="math">
-\[\mathbf{A = L L}^{*}\]</div>
-<p>where L is a lower triangular matrix with positive diagonal entries, and L*
-denotes the conjugate transpose of L. Every Hermitian positive-definite matrix
-(and thus also every real-valued symmetric positive-definite matrix) has a
-unique Cholesky decomposition.</p>
-<p>If the matrix A is Hermitian and positive semi-definite, then it still has a
-decomposition of the form A = LL* if the diagonal entries of L are allowed to
-be zero.</p>
-<p>When A has real entries, L has real entries as well.</p>
-<p>The Cholesky decomposition is unique when A is positive definite; there is
-only one lower triangular matrix L with strictly positive diagonal entries
-such that A = LL*. However, the decomposition need not be unique when A is
-positive semidefinite.</p>
-<p>The converse holds trivially: if A can be written as LL* for some invertible
-L, lower triangular or otherwise, then A is Hermitian and positive definite.</p>
+<div class="section" id="second-order-reliability-method-form">
+<h2>4.4. Second-Order Reliability Method (FORM)<a class="headerlink" href="#second-order-reliability-method-form" title="Permalink to this headline">¶</a></h2>
+<p>Better results can be obtained by higher order approximations of the failure
+surface. The Second Order Reliability Method (SORM) uses; for example, a
+quadratic approximation of the failure surface. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a></p>
 </div>
-<div class="section" id="gauss-base-points-and-weight-factors">
-<h2>4.3. Gauss base points and weight factors<a class="headerlink" href="#gauss-base-points-and-weight-factors" title="Permalink to this headline">¶</a></h2>
-<p>using the algorithm given by Davis and Rabinowitz in &#8216;Methods of Numerical
-Integration&#8217;, page 365, Academic Press, 1975.</p>
+<div class="section" id="simulation-methods">
+<h2>4.5. Simulation Methods<a class="headerlink" href="#simulation-methods" title="Permalink to this headline">¶</a></h2>
+<p>The preceding sections describe some methods for determining the reliability
+index <span class="math">\(\beta\)</span> for some common forms of the limit state
+function. However, it is sometimes extremely difficult or impossible to find
+<span class="math">\(\beta\)</span>. <a class="reference internal" href="references.html#nowak2000">[Nowak2000]</a></p>
+<p>In this case, Equation <a href="#equation-eq:2_70">(2)</a> may also be
+estimated by numerical simulation methods. A large variety of simulation
+techniques can be found in the literature, indeed, the most commonly used
+method is the Monte Carlo method. <a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+<p>The principle of simulation methods is to carry out random sampling in the
+physical (or standardized) space. For each of the samples the limit state
+function is evaluated to figure out, whether the configuration is desired or
+undesired. The probability of failure <span class="math">\(p_f\)</span> is estimated by the number
+of undesired configurations, respected to the total numbers of
+samples. <a class="reference internal" href="references.html#lemaire2010">[Lemaire2010]</a></p>
+<p>For this analysis Equation <a href="#equation-eq:2_70">(2)</a> can be rewritten as</p>
+<div class="math" id="equation-eq:2_91">
+<span class="eqno">(23)</span>\[        p_f = P(g({\bf X})\leq 0) = \iiint\limits_{g({\bf X})\leq 0}
+        I(g({\bf X})\leq 0) f_{{\bf X}}({\bf x}) d {\bf x}\]</div>
+<p>where <span class="math">\(I\)</span> is an indicator function that is equals to 1 if <span class="math">\(g({\bf
+X}) \leq 0\)</span> and otherwise 0. Equation <a href="#equation-eq:2_91">(23)</a> can be interpreted as
+expected value of the indicator function. Therefore, the probability of
+failure can be estimated such as <a class="reference internal" href="references.html#malioka2009">[Malioka2009]</a></p>
+<div class="math" id="equation-eq:2_92">
+<span class="eqno">(24)</span>\[        \tilde{p}_f = \text{Ex}\left[I(g({\bf X})\leq 0)\right] =
+        \frac{1}{n}\sum_{i=1}^{n} I(g({\bf X})\leq 0)\]</div>
+</div>
+<div class="section" id="crude-monte-carlo-simulation">
+<h2>4.6. Crude Monte Carlo Simulation<a class="headerlink" href="#crude-monte-carlo-simulation" title="Permalink to this headline">¶</a></h2>
+<p>The Crude Monte Carlo simulation (CMC) is the most simple form and corresponds
+to a direct application of Equation <a href="#equation-eq:2_92">(24)</a>. A large number <span class="math">\(n\)</span> of
+samples are simulated for the set of random variables <span class="math">\(\bf X\)</span>. All
+samples that lead to a failure are counted <span class="math">\(n_f\)</span> and after all
+simulations the probability of failure <span class="math">\(p_f\)</span> may be estimated by
+<a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+<div class="math" id="equation-eq:2_93">
+<span class="eqno">(25)</span>\[        \tilde{p}_f = \frac{n_f}{n}\]</div>
+<p>Theoretically, an infinite number of simulations will provide an exact
+probability of failure. However, time and the power of computers are limited;
+therefore, a suitable amount of simulations <span class="math">\(n\)</span> are required to achieve
+an acceptable level of accuracy. One possibility to reach such a level is to
+limit the coefficient of variation CoV for the probability of
+failure. <a class="reference internal" href="references.html#lemaire2010">[Lemaire2010]</a></p>
+<div class="math" id="equation-eq:2_94">
+<span class="eqno">(26)</span>\[        \text{CoV} = \sqrt{\frac{1-p_f}{n p_f}} \approx \frac{1}{\sqrt{n
+        p_f}} \qquad \text{for} \quad p_f \to 0\]</div>
+</div>
+<div class="section" id="importance-sampling">
+<h2>4.7. Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
+<p>To decrease the number of simulations and the coefficient of variation, other
+methods can be performed. One commonly applied method is the Importance
+Sampling simulation method (IS). Here the prior information about the failure
+surface is added to Equation <a href="#equation-eq:2_91">(23)</a></p>
+<div class="math" id="equation-eq:2_95">
+<span class="eqno">(27)</span>\[        p_f = P(g({\bf X})\leq 0) = \iiint\limits_{g({\bf X})\leq 0}
+        I(g({\bf X})\leq 0) \frac{f_{{\bf X}}({\bf x})}{h_{{\bf X}}({\bf
+        x})} h_{{\bf X}}({\bf x}) d {\bf x}\]</div>
+<p>where <span class="math">\(h_{X} ({\bf X})\)</span> is the importance sampling probability
+density function of <span class="math">\(\bf X\)</span>. Consequently Equation <a href="#equation-eq:2_92">(24)</a> is
+extended to <a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+<div class="math" id="equation-eq:2_96">
+<span class="eqno">(28)</span>\[        \tilde{p}_f = \text{Ex}\left[I(g({\bf X})\leq 0) \frac{f_{{\bf
+        X}}({\bf x})}{h_{{\bf X}}({\bf x})}\right] =
+        \frac{1}{n}\sum_{i=1}^{n} I(g({\bf X})\leq 0)\frac{f_{{\bf X}}({\bf
+        x})}{h_{{\bf X}}({\bf x})}\]</div>
+<p>The key to this approach is to choose <span class="math">\(h_{X} ({\bf X})\)</span> so that samples
+are obtained more frequently from the failure domain. For this reason, often a
+FORM (or SORM) analysis is performed to find a prior design point. [Baker2010]</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-10-a.png"><img alt="MC a" src="_images/f-02-10-a.png" style="width: 230.0px; height: 281.5px;" /></a>
+</div>
+<p>Representation of a physical space with a set <span class="math">\({\bf X}\)</span> of any two
+random variables. The shaded area denotes the failure domain and <cite>g({bf X}) =
+0</cite> the failure surface.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-10-b.png"><img alt="MC b" src="_images/f-02-10-b.png" style="width: 230.0px; height: 280.5px;" /></a>
+</div>
+<p>For the CMC method every dot corresponds to one configuration of the random
+variables <span class="math">\({\bf X}\)</span>. Dots in shaded areas lead to a failure.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/f-02-10-c.png"><img alt="MC c" src="_images/f-02-10-c.png" style="width: 235.0px; height: 280.5px;" /></a>
+</div>
+<p>The IS simulation method uses a distribution centered on the design point
+<span class="math">\({\bf x}^*\)</span>, is obtained from a FORM (or SORM) analysis. More dots in
+the failure domain can be observed.</p>
 </div>
 </div>
 
@@ -156,13 +427,22 @@ Integration&#8217;, page 365, Academic Press, 1975.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. Theoretical Background</a><ul>
-<li><a class="reference internal" href="#reliability">4.1. Reliability</a><ul>
-<li><a class="reference internal" href="#first-order-reliability-method-form">4.1.1. First-Order Reliability Method (FORM)</a></li>
-<li><a class="reference internal" href="#armijo-rule">4.1.2. Armijo Rule</a></li>
+<li><a class="reference internal" href="#structural-reliability">4.1. Structural Reliability</a><ul>
+<li><a class="reference internal" href="#limit-states">4.1.1. Limit States</a></li>
+<li><a class="reference internal" href="#the-classical-approach">4.1.2. The Classical Approach</a></li>
+<li><a class="reference internal" href="#hasofer-and-lind-reliability-index">4.1.3. Hasofer and Lind Reliability Index</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cholesky-decomposition">4.2. Cholesky decomposition</a></li>
-<li><a class="reference internal" href="#gauss-base-points-and-weight-factors">4.3. Gauss base points and weight factors</a></li>
+<li><a class="reference internal" href="#probability-transformation">4.2. Probability Transformation</a><ul>
+<li><a class="reference internal" href="#transformation-of-dependent-random-variables-using-nataf-approach">4.2.1. Transformation of Dependent Random Variables using Nataf Approach</a></li>
+<li><a class="reference internal" href="#transformation-of-dependent-random-variables-using-rosenblatt-approach">4.2.2. Transformation of Dependent Random Variables using Rosenblatt Approach</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#first-order-reliability-method-form">4.3. First-Order Reliability Method (FORM)</a></li>
+<li><a class="reference internal" href="#second-order-reliability-method-form">4.4. Second-Order Reliability Method (FORM)</a></li>
+<li><a class="reference internal" href="#simulation-methods">4.5. Simulation Methods</a></li>
+<li><a class="reference internal" href="#crude-monte-carlo-simulation">4.6. Crude Monte Carlo Simulation</a></li>
+<li><a class="reference internal" href="#importance-sampling">4.7. Importance Sampling</a></li>
 </ul>
 </li>
 </ul>
@@ -210,7 +490,7 @@ Integration&#8217;, page 365, Academic Press, 1975.</p>
         <li class="right" >
           <a href="tutorial.html" title="3. Tutorial"
              >previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
