@@ -1,59 +1,157 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Theoretical Background &mdash; PyRe 5.0.3 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="PyRe 5.0.3 documentation" href="index.html"/>
+        <link rel="next" title="5. Reliability Model" href="model.html"/>
+        <link rel="prev" title="3. Tutorial" href="tutorial.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyRe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">3. Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">4. Theoretical Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#structural-reliability">4.1. Structural Reliability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#limit-states">4.1.1. Limit States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-classical-approach">4.1.2. The Classical Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hasofer-and-lind-reliability-index">4.1.3. Hasofer and Lind Reliability Index</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-transformation">4.2. Probability Transformation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transformation-of-dependent-random-variables-using-nataf-approach">4.2.1. Transformation of Dependent Random Variables using Nataf Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transformation-of-dependent-random-variables-using-rosenblatt-approach">4.2.2. Transformation of Dependent Random Variables using Rosenblatt Approach</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#first-order-reliability-method-form">4.3. First-Order Reliability Method (FORM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#second-order-reliability-method-form">4.4. Second-Order Reliability Method (FORM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-methods">4.5. Simulation Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#crude-monte-carlo-simulation">4.6. Crude Monte Carlo Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importance-sampling">4.7. Importance Sampling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">5. Reliability Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">6. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculations.html">7. Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributions.html">8. Probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">9. List of References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyRe</a>
+      </nav>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>4. Theoretical Background &mdash; PyRe 5.0.2 documentation</title>
-    
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '5.0.2',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="PyRe 5.0.2 documentation" href="index.html" />
-    <link rel="next" title="5. Reliability Model" href="model.html" />
-    <link rel="prev" title="3. Tutorial" href="tutorial.html" /> 
-  </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="model.html" title="5. Reliability Model"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="tutorial.html" title="3. Tutorial"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>4. Theoretical Background</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/theory.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="theoretical-background">
 <span id="chap-theo"></span><h1>4. Theoretical Background<a class="headerlink" href="#theoretical-background" title="Permalink to this headline">¶</a></h1>
@@ -67,15 +165,15 @@ Python library, Structural Reliability Analysis with Python (PyRe).</p>
 <h3>4.1.1. Limit States<a class="headerlink" href="#limit-states" title="Permalink to this headline">¶</a></h3>
 <p>The word structural reliability refers to the meaning &#8220;how
 much reliable is a structure in terms of fulfilling its
-purpose&#8221; <a class="reference internal" href="references.html#malioka2009">[Malioka2009]</a>. The performance of structures and engineering
+purpose&#8221; <a class="reference internal" href="references.html#malioka2009" id="id1">[Malioka2009]</a>. The performance of structures and engineering
 systems was based on deterministic parameters even for a long time, even if it
 was known that all stages of the system involve uncertainties. SRA provides a
 method to take those uncertainties into account in a consistent manner. In
 this content the term probability of failure is more common than
-reliability. <a class="reference internal" href="references.html#malioka2009">[Malioka2009]</a></p>
+reliability. <a class="reference internal" href="references.html#malioka2009" id="id2">[Malioka2009]</a></p>
 <p>In general, the term &#8220;failure&#8221; is a vague definition because it means
 different things in different cases. For this purpose the concept of limit
-state is used to define failure in the context of SRA. <a class="reference internal" href="references.html#nowak2000">[Nowak2000]</a></p>
+state is used to define failure in the context of SRA. <a class="reference internal" href="references.html#nowak2000" id="id3">[Nowak2000]</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">A limit state represents a boundary between desired and undesired
@@ -83,7 +181,7 @@ performance of a structure.</p>
 </div>
 <p>This boundary is usually interpreted and formulated within a mathematical
 model for the functionality and performance of a structural system, and
-expressed by a limit state function. <a class="reference internal" href="references.html#ditlevsen2007">[Ditlevsen2007]</a></p>
+expressed by a limit state function. <a class="reference internal" href="references.html#ditlevsen2007" id="id4">[Ditlevsen2007]</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>[Limit State Function]</p>
@@ -98,7 +196,7 @@ functionality of the structure is called limit state function, denoted by
 <span class="math">\(g({\bf X}) = 0\)</span>. If <span class="math">\(g({\bf X}) &gt; 0\)</span>, it implies a desired
 performance and the structure is safe. An undesired performance is given by
 <span class="math">\(g({\bf X}) \leq 0\)</span> and it implies an unsafe structure or failure of the
-system. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a></p>
+system. <a class="reference internal" href="references.html#baker2010" id="id5">[Baker2010]</a></p>
 <p>The probability of failure <span class="math">\(p_f\)</span> is equal to the probability that an
 undesired performance will occur. It can be mathematical expressed as</p>
 <div class="math" id="equation-eq:2_70">
@@ -106,7 +204,7 @@ undesired performance will occur. It can be mathematical expressed as</p>
         X}}({\bf x}) d {\bf x}\]</div>
 <p>assuming that all random variables <span class="math">\({\bf X}\)</span> are continuous. However,
 there are three major issues related to the Equation <a href="#equation-eq:2_70">(2)</a>, proposed
-by <a class="reference internal" href="references.html#baker2010">[Baker2010]</a>:</p>
+by <a class="reference internal" href="references.html#baker2010" id="id6">[Baker2010]</a>:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>There is not always enough information to define the complete joint
@@ -128,13 +226,13 @@ First Order Reliability Method (FORM).</p>
 <span class="eqno">(3)</span>\[        g(R,S) = R - S\]</div>
 <p>Where <span class="math">\(R\)</span> is a random variable for the resistance with the outcome
 <span class="math">\(r\)</span> and <span class="math">\(S\)</span> represents a random variable for the internal strength
-or stress with the outcome of <span class="math">\(s\)</span>. <a class="reference internal" href="references.html#lemaire2010">[Lemaire2010]</a> The probability of
+or stress with the outcome of <span class="math">\(s\)</span>. <a class="reference internal" href="references.html#lemaire2010" id="id7">[Lemaire2010]</a> The probability of
 failure is according to Equation <a href="#equation-eq:2_70">(2)</a>:</p>
 <div class="math" id="equation-eq:2_72">
 <span class="eqno">(4)</span>\[        p_f = P(R-S \leq 0) = \iint\limits_{r\leq s} f_{R,S}(r,s) d r d s\]</div>
 <p>If <span class="math">\(R\)</span> and <span class="math">\(S\)</span> are independent the Equation <a href="#equation-eq:2_72">(4)</a> can be
 rewritten as a convolution integral, where the probability of failure
-<span class="math">\(p_f\)</span> can be (numerical) computed. <a class="reference internal" href="references.html#schneider2007">[Schneider2007]</a></p>
+<span class="math">\(p_f\)</span> can be (numerical) computed. <a class="reference internal" href="references.html#schneider2007" id="id8">[Schneider2007]</a></p>
 <div class="math" id="equation-eq:2_73">
 <span class="eqno">(5)</span>\[          p_f = P(R-S \leq 0) = \int_{-\infty}^{\infty} F_R(x) f_{S}(x) d x\]</div>
 <div class="figure align-center">
@@ -159,7 +257,7 @@ standard normal distribution function.</p>
 <p>Where <span class="math">\(\beta\)</span> is the so called Cornell reliability index, named after
 Cornell (1969), and is equal to the number of the standard derivation
 <span class="math">\(\sigma_M\)</span> by which the mean values <span class="math">\(\mu_M\)</span> of the safety margin
-<span class="math">\(M\)</span> are zero. <a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+<span class="math">\(M\)</span> are zero. <a class="reference internal" href="references.html#faber2009" id="id9">[Faber2009]</a></p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/f-02-08-a.png"><img alt="Safety Margin an Reliability Index" src="_images/f-02-08-a.png" style="width: 546.5px; height: 355.0px;" /></a>
 </div>
@@ -172,7 +270,7 @@ standard deviation of the safety margin was used as scale. To obtain a similar
 scale in the case of more basic variables, Hasofer and Lind (1974) proposed a
 non-homogeneous linear mapping of a set of random variables <span class="math">\({\bf X}\)</span>
 from a physical space into a set of normalized and uncorrelated random
-variables <span class="math">\({\bf Z}\)</span> in a normalized space. <a class="reference internal" href="references.html#madsen2006">[Madsen2006]</a></p>
+variables <span class="math">\({\bf Z}\)</span> in a normalized space. <a class="reference internal" href="references.html#madsen2006" id="id10">[Madsen2006]</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>[Hasofer and Lind Reliability Index]</p>
@@ -188,7 +286,7 @@ failure surface <span class="math">\(g({\bf Z})\)</span> and is given by</p>
 <div class="math" id="equation-eq:2_79">
 <span class="eqno">(11)</span>\[        {\vec\alpha} = - \frac{\nabla g({\bf z}^*)}{|\nabla g({\bf z}^*)|}\]</div>
 <p>where <span class="math">\(g({\bf z})\)</span> is the gradient vector, which is assumed to exist:
-<a class="reference internal" href="references.html#madsen2006">[Madsen2006]</a></p>
+<a class="reference internal" href="references.html#madsen2006" id="id11">[Madsen2006]</a></p>
 <div class="math" id="equation-eq:2_80">
 <span class="eqno">(12)</span>\[        \nabla g({\bf z}) = \left (\frac{\partial g}{\partial z_1}({\bf
         z}),\ldots, \frac{\partial g}{\partial z_n}({\bf z})\right)\]</div>
@@ -198,7 +296,7 @@ problem</p>
 <span class="eqno">(13)</span>\[        \min_x \, |{\bf z}|\,: \, g({\bf z})=0\]</div>
 <p>The calculation of <span class="math">\(\beta\)</span> can be undertaken in a number of different
 ways. In the general case where the failure surface is non-linear, an
-iterative method must be used. <a class="reference internal" href="references.html#thoft-christensen">[Thoft-Christensen]</a></p>
+iterative method must be used. <a class="reference internal" href="references.html#thoft-christensen" id="id12">[Thoft-Christensen]</a></p>
 </div>
 </div>
 <div class="section" id="probability-transformation">
@@ -211,7 +309,7 @@ relationships should also be transformed.</p>
 <div class="section" id="transformation-of-dependent-random-variables-using-nataf-approach">
 <h3>4.2.1. Transformation of Dependent Random Variables using Nataf Approach<a class="headerlink" href="#transformation-of-dependent-random-variables-using-nataf-approach" title="Permalink to this headline">¶</a></h3>
 <p>One method to handle this is using the Nataf joint distribution model, if the
-marginal cdfs are known. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a> The correlated random variables
+marginal cdfs are known. <a class="reference internal" href="references.html#baker2010" id="id13">[Baker2010]</a> The correlated random variables
 <span class="math">\({\bf X} = ( X_1 , \dots , X_n )\)</span> with the correlation matrix <span class="math">\(\bf
 R\)</span> can be transformed by</p>
 <div class="math" id="equation-eq:2_82">
@@ -219,7 +317,7 @@ R\)</span> can be transformed by</p>
 <p>into normally distributed random variables <span class="math">\(\bf Y\)</span> with zero means and
 unit variance, but still correlated with <span class="math">\({\bf R}_0\)</span> . Nataf’s
 distribution for <span class="math">\(\bf X\)</span> is obtained by assuming that <span class="math">\(\bf Y\)</span> is
-jointly normal. <a class="reference internal" href="references.html#liu1986">[Liu1986]</a></p>
+jointly normal. <a class="reference internal" href="references.html#liu1986" id="id14">[Liu1986]</a></p>
 <p>The correlation coefficients for <span class="math">\(\bf X\)</span> and <span class="math">\(\bf Y\)</span> are related by</p>
 <div class="math" id="equation-eq:2_83">
 <span class="eqno">(15)</span>\[        \rho_{X_i,X_j} =
@@ -242,7 +340,7 @@ for the transformation is given by</p>
         L}_0^{-1}\text{diag} \left(\frac{f_{X_i}(x_i)}{\Phi (z_i)}\right)\]</div>
 <p>This approach is useful when the marginal distribution for the random
 variables <span class="math">\(\bf X\)</span> is known and the knowledge about the variables
-dependence is limited to correlation coefficients. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a></p>
+dependence is limited to correlation coefficients. <a class="reference internal" href="references.html#baker2010" id="id15">[Baker2010]</a></p>
 </div>
 <div class="section" id="transformation-of-dependent-random-variables-using-rosenblatt-approach">
 <h3>4.2.2. Transformation of Dependent Random Variables using Rosenblatt Approach<a class="headerlink" href="#transformation-of-dependent-random-variables-using-rosenblatt-approach" title="Permalink to this headline">¶</a></h3>
@@ -260,7 +358,7 @@ are given for <span class="math">\(i \in [1,n]\)</span></p>
 <p>These conditional distributions for the random variables <span class="math">\(\bf X\)</span> can be
 transformed into standard normal marginal distributions for the variables
 <span class="math">\(\bf Z\)</span>, using the so called Rosenblatt transformation
-<a class="reference internal" href="references.html#rosenblatt1952">[Rosenblatt1952]</a>, suggested by Hohenbichler and Rackwitz (1981).</p>
+<a class="reference internal" href="references.html#rosenblatt1952" id="id16">[Rosenblatt1952]</a>, suggested by Hohenbichler and Rackwitz (1981).</p>
 <div class="math" id="equation-eq:2_88">
 <span class="eqno">(20)</span>\[\begin{split}        \begin{split}
         z_1 &amp;= \Phi^{-1}\left( F_{X_1}(x_1) \right)\\
@@ -281,7 +379,7 @@ elements [Baker2010]</p>
 <p>In some cases the Rosenblatt transformation cannot be applied, because the
 required conditional pdfs cannot be provided. In this case other
 transformations may be useful, for example Nataf transformation.
-<a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+<a class="reference internal" href="references.html#faber2009" id="id17">[Faber2009]</a></p>
 </div>
 </div>
 <div class="section" id="first-order-reliability-method-form">
@@ -299,7 +397,7 @@ the minimum distance from the z-origin to the failure surface. This distance
 <p>this corresponds to a linearization of the failure surface. The linearization point
 is the design point <span class="math">\({\bf z}^*\)</span>. This procedure is called First Order
 Reliability Method (FORM) and <span class="math">\(\beta\)</span> is the First Order Reliability
-Index. <a class="reference internal" href="references.html#madsen2006">[Madsen2006]</a></p>
+Index. <a class="reference internal" href="references.html#madsen2006" id="id18">[Madsen2006]</a></p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/f-02-09-a.png"><img alt="FORM a" src="_images/f-02-09-a.png" style="width: 230.0px; height: 281.5px;" /></a>
 </div>
@@ -324,24 +422,24 @@ reliability index <span class="math">\(\beta\)</span> can be computed.</p>
 <h2>4.4. Second-Order Reliability Method (FORM)<a class="headerlink" href="#second-order-reliability-method-form" title="Permalink to this headline">¶</a></h2>
 <p>Better results can be obtained by higher order approximations of the failure
 surface. The Second Order Reliability Method (SORM) uses; for example, a
-quadratic approximation of the failure surface. <a class="reference internal" href="references.html#baker2010">[Baker2010]</a></p>
+quadratic approximation of the failure surface. <a class="reference internal" href="references.html#baker2010" id="id19">[Baker2010]</a></p>
 </div>
 <div class="section" id="simulation-methods">
 <h2>4.5. Simulation Methods<a class="headerlink" href="#simulation-methods" title="Permalink to this headline">¶</a></h2>
 <p>The preceding sections describe some methods for determining the reliability
 index <span class="math">\(\beta\)</span> for some common forms of the limit state
 function. However, it is sometimes extremely difficult or impossible to find
-<span class="math">\(\beta\)</span>. <a class="reference internal" href="references.html#nowak2000">[Nowak2000]</a></p>
+<span class="math">\(\beta\)</span>. <a class="reference internal" href="references.html#nowak2000" id="id20">[Nowak2000]</a></p>
 <p>In this case, Equation <a href="#equation-eq:2_70">(2)</a> may also be
 estimated by numerical simulation methods. A large variety of simulation
 techniques can be found in the literature, indeed, the most commonly used
-method is the Monte Carlo method. <a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+method is the Monte Carlo method. <a class="reference internal" href="references.html#faber2009" id="id21">[Faber2009]</a></p>
 <p>The principle of simulation methods is to carry out random sampling in the
 physical (or standardized) space. For each of the samples the limit state
 function is evaluated to figure out, whether the configuration is desired or
 undesired. The probability of failure <span class="math">\(p_f\)</span> is estimated by the number
 of undesired configurations, respected to the total numbers of
-samples. <a class="reference internal" href="references.html#lemaire2010">[Lemaire2010]</a></p>
+samples. <a class="reference internal" href="references.html#lemaire2010" id="id22">[Lemaire2010]</a></p>
 <p>For this analysis Equation <a href="#equation-eq:2_70">(2)</a> can be rewritten as</p>
 <div class="math" id="equation-eq:2_91">
 <span class="eqno">(23)</span>\[        p_f = P(g({\bf X})\leq 0) = \iiint\limits_{g({\bf X})\leq 0}
@@ -349,7 +447,7 @@ samples. <a class="reference internal" href="references.html#lemaire2010">[Lemai
 <p>where <span class="math">\(I\)</span> is an indicator function that is equals to 1 if <span class="math">\(g({\bf
 X}) \leq 0\)</span> and otherwise 0. Equation <a href="#equation-eq:2_91">(23)</a> can be interpreted as
 expected value of the indicator function. Therefore, the probability of
-failure can be estimated such as <a class="reference internal" href="references.html#malioka2009">[Malioka2009]</a></p>
+failure can be estimated such as <a class="reference internal" href="references.html#malioka2009" id="id23">[Malioka2009]</a></p>
 <div class="math" id="equation-eq:2_92">
 <span class="eqno">(24)</span>\[        \tilde{p}_f = \text{Ex}\left[I(g({\bf X})\leq 0)\right] =
         \frac{1}{n}\sum_{i=1}^{n} I(g({\bf X})\leq 0)\]</div>
@@ -361,7 +459,7 @@ to a direct application of Equation <a href="#equation-eq:2_92">(24)</a>. A larg
 samples are simulated for the set of random variables <span class="math">\(\bf X\)</span>. All
 samples that lead to a failure are counted <span class="math">\(n_f\)</span> and after all
 simulations the probability of failure <span class="math">\(p_f\)</span> may be estimated by
-<a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+<a class="reference internal" href="references.html#faber2009" id="id24">[Faber2009]</a></p>
 <div class="math" id="equation-eq:2_93">
 <span class="eqno">(25)</span>\[        \tilde{p}_f = \frac{n_f}{n}\]</div>
 <p>Theoretically, an infinite number of simulations will provide an exact
@@ -369,7 +467,7 @@ probability of failure. However, time and the power of computers are limited;
 therefore, a suitable amount of simulations <span class="math">\(n\)</span> are required to achieve
 an acceptable level of accuracy. One possibility to reach such a level is to
 limit the coefficient of variation CoV for the probability of
-failure. <a class="reference internal" href="references.html#lemaire2010">[Lemaire2010]</a></p>
+failure. <a class="reference internal" href="references.html#lemaire2010" id="id25">[Lemaire2010]</a></p>
 <div class="math" id="equation-eq:2_94">
 <span class="eqno">(26)</span>\[        \text{CoV} = \sqrt{\frac{1-p_f}{n p_f}} \approx \frac{1}{\sqrt{n
         p_f}} \qquad \text{for} \quad p_f \to 0\]</div>
@@ -386,7 +484,7 @@ surface is added to Equation <a href="#equation-eq:2_91">(23)</a></p>
         x})} h_{{\bf X}}({\bf x}) d {\bf x}\]</div>
 <p>where <span class="math">\(h_{X} ({\bf X})\)</span> is the importance sampling probability
 density function of <span class="math">\(\bf X\)</span>. Consequently Equation <a href="#equation-eq:2_92">(24)</a> is
-extended to <a class="reference internal" href="references.html#faber2009">[Faber2009]</a></p>
+extended to <a class="reference internal" href="references.html#faber2009" id="id26">[Faber2009]</a></p>
 <div class="math" id="equation-eq:2_96">
 <span class="eqno">(28)</span>\[        \tilde{p}_f = \text{Ex}\left[I(g({\bf X})\leq 0) \frac{f_{{\bf
         X}}({\bf x})}{h_{{\bf X}}({\bf x})}\right] =
@@ -416,86 +514,72 @@ the failure domain can be observed.</p>
 </div>
 
 
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/Logo.png" alt="Logo"/>
-            </a></p>
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">4. Theoretical Background</a><ul>
-<li><a class="reference internal" href="#structural-reliability">4.1. Structural Reliability</a><ul>
-<li><a class="reference internal" href="#limit-states">4.1.1. Limit States</a></li>
-<li><a class="reference internal" href="#the-classical-approach">4.1.2. The Classical Approach</a></li>
-<li><a class="reference internal" href="#hasofer-and-lind-reliability-index">4.1.3. Hasofer and Lind Reliability Index</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#probability-transformation">4.2. Probability Transformation</a><ul>
-<li><a class="reference internal" href="#transformation-of-dependent-random-variables-using-nataf-approach">4.2.1. Transformation of Dependent Random Variables using Nataf Approach</a></li>
-<li><a class="reference internal" href="#transformation-of-dependent-random-variables-using-rosenblatt-approach">4.2.2. Transformation of Dependent Random Variables using Rosenblatt Approach</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#first-order-reliability-method-form">4.3. First-Order Reliability Method (FORM)</a></li>
-<li><a class="reference internal" href="#second-order-reliability-method-form">4.4. Second-Order Reliability Method (FORM)</a></li>
-<li><a class="reference internal" href="#simulation-methods">4.5. Simulation Methods</a></li>
-<li><a class="reference internal" href="#crude-monte-carlo-simulation">4.6. Crude Monte Carlo Simulation</a></li>
-<li><a class="reference internal" href="#importance-sampling">4.7. Importance Sampling</a></li>
-</ul>
-</li>
-</ul>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="model.html" class="btn btn-neutral float-right" title="5. Reliability Model" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial.html" class="btn btn-neutral" title="3. Tutorial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="tutorial.html"
-                        title="previous chapter">3. Tutorial</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="model.html"
-                        title="next chapter">5. Reliability Model</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/theory.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Juergen Hackl.
+
     </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="model.html" title="5. Reliability Model"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="tutorial.html" title="3. Tutorial"
-             >previous</a> |</li>
-        <li><a href="index.html">PyRe 5.0.2 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2013, Juergen Hackl.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'5.0.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>
