@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>3. Tutorial &mdash; PyRe 5.0.3 documentation</title>
+  <title>3. Tutorial &mdash; Pystra 0.1.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> PyRe
+            <a href="index.html" class="icon icon-home"> Pystra
           
 
           
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                5.0.3
+                0.1
               </div>
             
           
@@ -124,7 +124,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">PyRe</a>
+          <a href="index.html">Pystra</a>
         
       </nav>
 
@@ -178,7 +178,7 @@
             
   <section id="tutorial">
 <span id="chap-tutorial"></span><h1><span class="section-number">3. </span>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial will guide you through a typical PyRe application. Familiarity
+<p>This tutorial will guide you through a typical Pystra application. Familiarity
 with Python is assumed, so if you are new to Python, books such as <a class="reference internal" href="references.html#lutz2007" id="id1"><span>[Lutz2007]</span></a>
 or <a class="reference internal" href="references.html#langtangen2009" id="id2"><span>[Langtangen2009]</span></a> are the place to start. Plenty of online documentation
 can also be found on the <a class="reference external" href="http://www.python.org/doc/">Python documentation</a> page.</p>
@@ -191,8 +191,8 @@ can also be found on the <a class="reference external" href="http://www.python.o
         X_2 &amp;\sim \text{Normal}(2000,400)\\
         X_3 &amp;\sim \text{Uniform}(5,0.5)
         \end{align}\end{split}\]</div>
-<p>Additionaly those variables are relatet to each other. Therefore the
-correlationmatrix <span class="math notranslate nohighlight">\({\bf C}\)</span> is given:</p>
+<p>Additionally those variables are related to each other. Therefore the
+correlation matrix <span class="math notranslate nohighlight">\({\bf C}\)</span> is given:</p>
 <div class="math notranslate nohighlight" id="equation-correlation-matrix">
 <span class="eqno">(2)<a class="headerlink" href="#equation-correlation-matrix" title="Permalink to this equation">¶</a></span>\[\begin{split}        \begin{align}
         {\bf C} =
@@ -241,7 +241,7 @@ load the package is case 2:</p>
 </pre></div>
 </div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">example_limitstatefunction</span></code> has be defined in advance
-as a seperate function such as::</p>
+as a separate function such as::</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_limitstatefunction</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span><span class="n">X2</span><span class="p">,</span><span class="n">X3</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">X2</span><span class="o">*</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">X3</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">X1</span><span class="o">*</span><span class="p">(</span><span class="mi">200</span><span class="o">*</span><span class="n">X3</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
@@ -401,7 +401,7 @@ formula.</p>
 <section id="finally">
 <h2><span class="section-number">3.4. </span>Finally…<a class="headerlink" href="#finally" title="Permalink to this headline">¶</a></h2>
 <p>This was a short introduction how to use <code class="docutils literal notranslate"><span class="pre">pyre</span></code>. The tutorial above is also
-available on <a class="reference external" href="https://github.com/hackl/pyre">GitHub</a> under <code class="docutils literal notranslate"><span class="pre">example.py</span></code>.</p>
+available on <a class="reference external" href="https://github.com/pystra/pystra">GitHub</a> under <code class="docutils literal notranslate"><span class="pre">example.py</span></code>.</p>
 <p>Let’s have fun ;)</p>
 </section>
 </section>
@@ -420,7 +420,7 @@ available on <a class="reference external" href="https://github.com/hackl/pyre">
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2018, Juergen Hackl.
+        &#169; Copyright 2021, The Pystra Developers.
 
     </p>
   </div>

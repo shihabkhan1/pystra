@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2. Installation &mdash; PyRe 5.0.3 documentation</title>
+  <title>2. Installation &mdash; Pystra 0.1.0 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> PyRe
+            <a href="index.html" class="icon icon-home"> Pystra
           
 
           
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                5.0.3
+                0.1
               </div>
             
           
@@ -124,7 +124,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">PyRe</a>
+          <a href="index.html">Pystra</a>
         
       </nav>
 
@@ -178,15 +178,15 @@
             
   <section id="installation">
 <h1><span class="section-number">2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>PyRe is known to run on Mac OS X, Linux and Windows, but in theory should be
+<p>Pystra is known to run on Mac OS X, Linux and Windows, but in theory should be
 able to work on just about any platform for which Python, a Fortran compiler
 and the NumPy SciPy, and Math modules are available. However, installing some
-extra depencies can greatly improve PyRe’s performance and versatility. The
+extra depencies can greatly improve Pystra’s performance and versatility. The
 following describes the required and optional dependencies and takes you
 through the installation process.</p>
 <section id="dependencies">
 <h2><span class="section-number">2.1. </span>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>PyRe requires some prerequisite packages to be present on the system.
+<p>Pystra requires some prerequisite packages to be present on the system.
 Fortunately, there are currently only a few hard dependencies, and all are
 freely available online.</p>
 <ul class="simple">
@@ -201,14 +201,14 @@ architecture for interactive parallel computing.</p></li>
 </section>
 <section id="installation-using-pip">
 <h2><span class="section-number">2.2. </span>Installation using pip<a class="headerlink" href="#installation-using-pip" title="Permalink to this headline">¶</a></h2>
-<p>PyRe is pure python code. It has no platform-specific dependencies and should thus work on all platforms. It builds on <cite>numpy</cite> and <cite>scipy</cite>. The latest version of <cite>pyre</cite> can be installed by typing::</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">hackl</span><span class="o">/</span><span class="n">pyre</span><span class="o">.</span><span class="n">git</span>
+<p>Pystra is pure python code. It has no platform-specific dependencies and should thus work on all platforms. It builds on <cite>numpy</cite> and <cite>scipy</cite>. The latest version of <cite>pystra</cite> can be installed by typing::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pystra</span><span class="o">/</span><span class="n">pystra</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </section>
 <section id="installation-using-setup-py">
 <h2><span class="section-number">2.3. </span>Installation using setup.py<a class="headerlink" href="#installation-using-setup-py" title="Permalink to this headline">¶</a></h2>
-<p>First download the source code from <a class="reference external" href="https://github.com/hackl/pyre">GitHub</a> and unpack it. Then move
+<p>First download the source code from <a class="reference external" href="https://github.com/pystra/pystra">GitHub</a> and unpack it. Then move
 into the unpacked directory and run::</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
@@ -216,17 +216,16 @@ into the unpacked directory and run::</p>
 </section>
 <section id="development-version">
 <h2><span class="section-number">2.4. </span>Development version<a class="headerlink" href="#development-version" title="Permalink to this headline">¶</a></h2>
-<p>You can check out the development version of the code from the <a class="reference external" href="https://github.com/hackl/pyre">GitHub</a>
+<p>You can check out the development version of the code from the <a class="reference external" href="https://github.com/pystra/pystra">GitHub</a>
 repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">hackl</span><span class="o">/</span><span class="n">pyre</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pystra</span><span class="o">/</span><span class="n">pystra</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </section>
 <section id="bugs-and-feature-requests">
 <h2><span class="section-number">2.5. </span>Bugs and feature requests<a class="headerlink" href="#bugs-and-feature-requests" title="Permalink to this headline">¶</a></h2>
 <p>Report problems with the installation, bugs in the code or feature request at
-the <a class="reference external" href="http://github.com/hackl/pyre/issues">issue tracker</a>. Comments and questions are welcome and should be
-addressed to <a class="reference external" href="mailto:hackl&#46;j&#37;&#52;&#48;gmx&#46;at">Jürgen Hackl</a>.</p>
+the <a class="reference external" href="http://github.com/pystra/pystra/issues">issue tracker</a>.</p>
 </section>
 </section>
 
@@ -244,7 +243,7 @@ addressed to <a class="reference external" href="mailto:hackl&#46;j&#37;&#52;&#4
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2018, Juergen Hackl.
+        &#169; Copyright 2021, The Pystra Developers.
 
     </p>
   </div>
