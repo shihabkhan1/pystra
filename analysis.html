@@ -1,52 +1,59 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>6. Analysis &mdash; PyRe 5.0.3 documentation</title>
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
   
 
   
 
   
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-    <link rel="top" title="PyRe 5.0.3 documentation" href="index.html"/>
-        <link rel="next" title="7. Calculations" href="calculations.html"/>
-        <link rel="prev" title="5. Reliability Model" href="model.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Calculations" href="calculations.html" />
+    <link rel="prev" title="5. Reliability Model" href="model.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -77,18 +84,22 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">3. Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">4. Theoretical Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">5. Reliability Model</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">6. Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyre.form">6.1. First-Order Reliability Method (FORM)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-order-reliability-method-form">6.1. First-Order Reliability Method (FORM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#second-order-reliability-method-sorm">6.2. Second-Order Reliability Method (SORM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#monte-carlo-simulation-mc">6.3. Monte Carlo Simulation (MC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#crude-monte-carlo-simulation-cmc">6.4. Crude Monte Carlo Simulation (CMC)</a></li>
@@ -104,522 +115,118 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">PyRe</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyRe</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>6. Analysis</li>
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">6. </span>Analysis</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/analysis.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/analysis.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="analysis">
-<span id="chap-analysis"></span><h1>6. Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-pyre.form">
-<span id="first-order-reliability-method-form"></span><h2>6.1. First-Order Reliability Method (FORM)<a class="headerlink" href="#module-pyre.form" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="pyre.form.Form">
-<em class="property">class </em><code class="descclassname">pyre.form.</code><code class="descname">Form</code><span class="sig-paren">(</span><em>analysis_options=None</em>, <em>limit_state=None</em>, <em>stochastic_model=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form" title="Permalink to this definition">¶</a></dt>
-<dd><p>First Order Reliability Method (FORM)</p>
-<p>Let <span class="math">\({\bf Z}\)</span> be a set of uncorrelated and standardized normally
-distributed random variables <span class="math">\(( Z_1 ,\dots, Z_n )\)</span> in the normalized
-z-space, corresponding to any set of random variables <span class="math">\({\bf X} = (
-X_1 , \dots , X_n )\)</span> in the physical x-space, then the limit state surface
-in x-space is also mapped on the corresponding limit state surface in
-z-space.</p>
-<p>The reliability index <span class="math">\(\beta\)</span> is the minimum distance from the
-z-origin to the failure surface. This distance <span class="math">\(\beta\)</span> can directly
-be mapped to a probability of failure</p>
-<div class="math" id="equation-eq:2_90">
-<span class="eqno">(1)</span>\[       p_f \approx p_{f1} = \Phi(-\beta)\]</div>
-<p>this corresponds to a linearization of the failure surface. The
-linearization point is the design point <span class="math">\({\bf z}^*\)</span>. This procedure
-is called First Order Reliability Method (FORM) and <span class="math">\(eta\)</span> is the
-First Order Reliability Index. <a class="reference internal" href="references.html#madsen2006" id="id1">[Madsen2006]</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><ul class="first last simple">
-<li>analysis_option (AnalysisOption): Option for the structural analysis</li>
-<li>limit_state (LimitState): Information about the limit state</li>
-<li>stochastic_model (StochasticModel): Information about the model</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyre.form.Form.computeAlpha">
-<code class="descname">computeAlpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeAlpha"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeAlpha" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute alpha vector</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeBeta">
-<code class="descname">computeBeta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeBeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeBeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute beta value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeFailureProbability">
-<code class="descname">computeFailureProbability</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeFailureProbability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeFailureProbability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute probability of failure</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeGamma">
-<code class="descname">computeGamma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeGamma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeGamma" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute gamma vector</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeJacobian">
-<code class="descname">computeJacobian</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeJacobian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeJacobian" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the Jacobian</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeLimitState">
-<code class="descname">computeLimitState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeLimitState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeLimitState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate limit-state function and its gradient</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeSearchDirection">
-<code class="descname">computeSearchDirection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeSearchDirection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeSearchDirection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine search direction</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeStartingPoint">
-<code class="descname">computeStartingPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeStartingPoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeStartingPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute starting point for the algorithm</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeStepSize">
-<code class="descname">computeStepSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeStepSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeStepSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine step size</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.computeTransformation">
-<code class="descname">computeTransformation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.computeTransformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.computeTransformation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute transformation from u to x space</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.getBeta">
-<code class="descname">getBeta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.getBeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.getBeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the beta value</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>beta (float): Returns the beta value</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.getDesignPoint">
-<code class="descname">getDesignPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.getDesignPoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.getDesignPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the design point</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>u (float): Returns the design point</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.getFailure">
-<code class="descname">getFailure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.getFailure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.getFailure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the probability of failure</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>Pf (float): Returns the probability of failure</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.form.Form.showResults">
-<code class="descname">showResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/form.html#Form.showResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.form.Form.showResults" title="Permalink to this definition">¶</a></dt>
-<dd><p>Show results</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="second-order-reliability-method-sorm">
-<h2>6.2. Second-Order Reliability Method (SORM)<a class="headerlink" href="#second-order-reliability-method-sorm" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="monte-carlo-simulation-mc">
-<h2>6.3. Monte Carlo Simulation (MC)<a class="headerlink" href="#monte-carlo-simulation-mc" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="pyre.mc.MonteCarlo">
-<em class="property">class </em><code class="descclassname">pyre.mc.</code><code class="descname">MonteCarlo</code><span class="sig-paren">(</span><em>analysis_options=None</em>, <em>limit_state=None</em>, <em>stochastic_model=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Monte Carlo Simulation</p>
-<p>The preceding sections describe some methods for determining the reliability
-index <span class="math">\(\beta\)</span> for some common forms of the limit state
-function. However, it is sometimes extremely difficult or impossible to find
-<span class="math">\(\beta\)</span>. <a class="reference internal" href="references.html#nowak2000" id="id2">[Nowak2000]</a></p>
-<p>In this case, the probability of failure <span class="math">\(p_f\)</span> may also be estimated
-by numerical simulation methods. A large variety of simulation techniques
-can be found in the literature, indeed, the most commonly used method is the
-Monte Carlo method. <a class="reference internal" href="references.html#faber2009" id="id3">[Faber2009]</a></p>
-<p>The principle of simulation methods is to carry out random sampling in the
-physical (or standardized) space. For each of the samples the limit state
-function is evaluated to figure out, whether the configuration is desired or
-undesired. The probability of failure <span class="math">\(p_f\)</span> is estimated by the number
-of undesired configurations, respected to the total numbers of
-samples. <a class="reference internal" href="references.html#lemaire2010" id="id4">[Lemaire2010]</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><ul class="first last simple">
-<li>analysis_option (AnalysisOption): Option for the structural analysis</li>
-<li>limit_state (LimitState): Information about the limit state</li>
-<li>stochastic_model (StochasticModel): Information about the model</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeBeta">
-<code class="descname">computeBeta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeBeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeBeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute beta value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeCoefficientOfVariation">
-<code class="descname">computeCoefficientOfVariation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeCoefficientOfVariation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute Coefficient of Variation</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeFailureProbability">
-<code class="descname">computeFailureProbability</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeFailureProbability"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeFailureProbability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute probability of failure</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeLimitState">
-<code class="descname">computeLimitState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeLimitState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeLimitState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate limit-state function</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computePercentDone">
-<code class="descname">computePercentDone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computePercentDone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computePercentDone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute percent done</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeRandomNumbers">
-<code class="descname">computeRandomNumbers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeRandomNumbers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeRandomNumbers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute random numbers</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeResults">
-<code class="descname">computeResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeResults" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collect result of sampling</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeSumUpdate">
-<code class="descname">computeSumUpdate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeSumUpdate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeSumUpdate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update summation</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.computeTransformation">
-<code class="descname">computeTransformation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.computeTransformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.computeTransformation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute transformation from u to x space</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">TODO: this method takes a lot of time, find some better solution.</p>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.getBeta">
-<code class="descname">getBeta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.getBeta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.getBeta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the beta value</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>beta (float): Returns the beta value</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.getBins">
-<code class="descname">getBins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.getBins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.getBins" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the amount on bins</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>bins (int): Returns the amount on bins (histogram)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.getDistributionData">
-<code class="descname">getDistributionData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.getDistributionData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.getDistributionData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns data for the failure</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>all_G (float): Returns data from the distribution</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.getFailure">
-<code class="descname">getFailure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.getFailure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.getFailure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the probability of failure</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>Pf (float): Returns the probability of failure</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.MonteCarlo.setPoint">
-<code class="descname">setPoint</code><span class="sig-paren">(</span><em>point=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#MonteCarlo.setPoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.MonteCarlo.setPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set design point</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="crude-monte-carlo-simulation-cmc">
-<h2>6.4. Crude Monte Carlo Simulation (CMC)<a class="headerlink" href="#crude-monte-carlo-simulation-cmc" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="pyre.mc.CrudeMonteCarlo">
-<em class="property">class </em><code class="descclassname">pyre.mc.</code><code class="descname">CrudeMonteCarlo</code><span class="sig-paren">(</span><em>analysis_options=None</em>, <em>limit_state=None</em>, <em>stochastic_model=None</em>, <em>point=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#CrudeMonteCarlo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.CrudeMonteCarlo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Crude Monte Carlo simulation (CMC)</p>
-<p>The Crude Monte Carlo simulation (CMC) is the most simple form and
-corresponds to a direct application of Equation (24). A large number
-<span class="math">\(n\)</span> of samples are simulated for the set of random variables
-<span class="math">\({\bf X}\)</span>. All samples that lead to a failure are counted <span class="math">\(n_f\)</span>
-and after all simulations the probability of failure <span class="math">\(p_f\)</span> may be
-estimated by <a class="reference internal" href="references.html#faber2009" id="id5">[Faber2009]</a></p>
-<div class="math" id="equation-eq:2_93">
-<span class="eqno">(2)</span>\[        \tilde{p}_f = \frac{n_f}{n}\]</div>
-<p>Theoretically, an infinite number of simulations will provide an exact
-probability of failure. However, time and the power of computers are
-limited; therefore, a suitable amount of simulations <span class="math">\(n\)</span> are required
-to achieve an acceptable level of accuracy.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><ul class="first last simple">
-<li>analysis_option (AnalysisOption): Option for the structural analysis</li>
-<li>limit_state (LimitState): Information about the limit state</li>
-<li>stochastic_model (StochasticModel): Information about the model</li>
-<li>point (vec): Design point for the simulation</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyre.mc.CrudeMonteCarlo.initializeVariables">
-<code class="descname">initializeVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#CrudeMonteCarlo.initializeVariables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.CrudeMonteCarlo.initializeVariables" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialization of the simulation variables</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.CrudeMonteCarlo.showResults">
-<code class="descname">showResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#CrudeMonteCarlo.showResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.CrudeMonteCarlo.showResults" title="Permalink to this definition">¶</a></dt>
-<dd><p>Show results and plots</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="importance-sampling-is">
-<h2>6.5. Importance Sampling (IS)<a class="headerlink" href="#importance-sampling-is" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="pyre.mc.ImportanceSampling">
-<em class="property">class </em><code class="descclassname">pyre.mc.</code><code class="descname">ImportanceSampling</code><span class="sig-paren">(</span><em>analysis_options=None</em>, <em>limit_state=None</em>, <em>stochastic_model=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#ImportanceSampling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.ImportanceSampling" title="Permalink to this definition">¶</a></dt>
-<dd><p>Importance Sampling</p>
-<p>To decrease the number of simulations and the coefficient of variation,
-other methods can be performed. One commonly applied method is the
-Importance Sampling simulation method (IS).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><ul class="first last simple">
-<li>analysis_option (AnalysisOption): Option for the structural analysis</li>
-<li>limit_state (LimitState): Information about the limit state</li>
-<li>stochastic_model (StochasticModel): Information about the model</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="distribution-analysis">
-<h2>6.6. Distribution Analysis<a class="headerlink" href="#distribution-analysis" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="pyre.mc.DistributionAnalysis">
-<em class="property">class </em><code class="descclassname">pyre.mc.</code><code class="descname">DistributionAnalysis</code><span class="sig-paren">(</span><em>analysis_options=None</em>, <em>limit_state=None</em>, <em>stochastic_model=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#DistributionAnalysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.DistributionAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Distribution Analysis</p>
-<p>To analyze the random variables, used in the limit state function, a
-numerical distribution analysis based on Monte Carlo simulation can be
-performed.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><ul class="first last simple">
-<li>analysis_option (AnalysisOption): Option for the structural analysis</li>
-<li>limit_state (LimitState): Information about the limit state</li>
-<li>stochastic_model (StochasticModel): Information about the model</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyre.mc.DistributionAnalysis.computeDistributionData">
-<code class="descname">computeDistributionData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#DistributionAnalysis.computeDistributionData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.DistributionAnalysis.computeDistributionData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute data for the distributions</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.DistributionAnalysis.coumputeDataUpdate">
-<code class="descname">coumputeDataUpdate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#DistributionAnalysis.coumputeDataUpdate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.DistributionAnalysis.coumputeDataUpdate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update data</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.DistributionAnalysis.initializeVariables">
-<code class="descname">initializeVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#DistributionAnalysis.initializeVariables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.DistributionAnalysis.initializeVariables" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialization of the simulation variables</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyre.mc.DistributionAnalysis.showResults">
-<code class="descname">showResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/mc.html#DistributionAnalysis.showResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.mc.DistributionAnalysis.showResults" title="Permalink to this definition">¶</a></dt>
-<dd><p>Show results and plots</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
+  <section id="analysis">
+<span id="chap-analysis"></span><h1><span class="section-number">6. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h1>
+<section id="first-order-reliability-method-form">
+<h2><span class="section-number">6.1. </span>First-Order Reliability Method (FORM)<a class="headerlink" href="#first-order-reliability-method-form" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="second-order-reliability-method-sorm">
+<h2><span class="section-number">6.2. </span>Second-Order Reliability Method (SORM)<a class="headerlink" href="#second-order-reliability-method-sorm" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="monte-carlo-simulation-mc">
+<h2><span class="section-number">6.3. </span>Monte Carlo Simulation (MC)<a class="headerlink" href="#monte-carlo-simulation-mc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="crude-monte-carlo-simulation-cmc">
+<h2><span class="section-number">6.4. </span>Crude Monte Carlo Simulation (CMC)<a class="headerlink" href="#crude-monte-carlo-simulation-cmc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="importance-sampling-is">
+<h2><span class="section-number">6.5. </span>Importance Sampling (IS)<a class="headerlink" href="#importance-sampling-is" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="distribution-analysis">
+<h2><span class="section-number">6.6. </span>Distribution Analysis<a class="headerlink" href="#distribution-analysis" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
 
 
            </div>
+           
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="calculations.html" class="btn btn-neutral float-right" title="7. Calculations" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="model.html" class="btn btn-neutral" title="5. Reliability Model" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="calculations.html" class="btn btn-neutral float-right" title="7. Calculations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="model.html" class="btn btn-neutral float-left" title="5. Reliability Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Juergen Hackl.
+        &#169; Copyright 2018, Juergen Hackl.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -628,37 +235,15 @@ performed.</p>
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'5.0.3',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

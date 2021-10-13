@@ -1,52 +1,59 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>7. Calculations &mdash; PyRe 5.0.3 documentation</title>
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
   
 
   
 
   
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-    <link rel="top" title="PyRe 5.0.3 documentation" href="index.html"/>
-        <link rel="next" title="8. Probability distributions" href="distributions.html"/>
-        <link rel="prev" title="6. Analysis" href="analysis.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. Probability distributions" href="distributions.html" />
+    <link rel="prev" title="6. Analysis" href="analysis.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -77,26 +84,30 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">3. Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">4. Theoretical Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">5. Reliability Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">6. Analysis</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">7. Calculations</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Calculations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#matrices-operators">7.1. Matrices Operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-pyre.correlation">7.1.1. Correlation Matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-pyre.cholesky">7.1.2. Cholesky decomposition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-pyre.transformation">7.1.3. Transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correlation-matrix">7.1.1. Correlation Matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cholesky-decomposition">7.1.2. Cholesky decomposition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transformation">7.1.3. Transformation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyre.quadrature">7.2. Numerical Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-pyre.stepsize">7.3. Limit State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numerical-integration">7.2. Numerical Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limit-state">7.3. Limit State</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="distributions.html">8. Probability distributions</a></li>
@@ -106,327 +117,118 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">PyRe</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyRe</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>7. Calculations</li>
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">7. </span>Calculations</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/calculations.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/calculations.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="calculations">
-<span id="chap-calculations"></span><h1>7. Calculations<a class="headerlink" href="#calculations" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="matrices-operators">
-<h2>7.1. Matrices Operators<a class="headerlink" href="#matrices-operators" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="module-pyre.correlation">
-<span id="correlation-matrix"></span><h3>7.1.1. Correlation Matrix<a class="headerlink" href="#module-pyre.correlation" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
-<dt id="pyre.correlation.CorrelationMatrix">
-<em class="property">class </em><code class="descclassname">pyre.correlation.</code><code class="descname">CorrelationMatrix</code><span class="sig-paren">(</span><em>matrix=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/correlation.html#CorrelationMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.correlation.CorrelationMatrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Correlation matrix</p>
-<p>The correlation matrix of <span class="math">\(n\)</span> random variables <span class="math">\(X_1, \dots, X_n\)</span>
-is the <span class="math">\(n \times n\)</span> matrix whose <span class="math">\(i,j\)</span> entry is
-<span class="math">\(\text{corr}(X_i, X_j)\)</span>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><ul class="first last simple">
-<li>matrix (mat): correlation matrix</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyre.correlation.CorrelationMatrix.getMatrix">
-<code class="descname">getMatrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/correlation.html#CorrelationMatrix.getMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.correlation.CorrelationMatrix.getMatrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return correlation matrix</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>matrix (mat): Return a matrix from type correlation matrix.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.correlation.absoluteIntegralValue">
-<code class="descclassname">pyre.correlation.</code><code class="descname">absoluteIntegralValue</code><span class="sig-paren">(</span><em>rho0</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/correlation.html#absoluteIntegralValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.correlation.absoluteIntegralValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Absolute rho-integral value</p>
-<p>Compute the absolute value of the bi-folded rho-integral by 2D numerical integration</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.correlation.computeModifiedCorrelationMatrix">
-<code class="descclassname">pyre.correlation.</code><code class="descname">computeModifiedCorrelationMatrix</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/correlation.html#computeModifiedCorrelationMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.correlation.computeModifiedCorrelationMatrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute modified correlation matrix</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.correlation.getModifiedCorrelationMatrix">
-<code class="descclassname">pyre.correlation.</code><code class="descname">getModifiedCorrelationMatrix</code><span class="sig-paren">(</span><em>stochastic_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/correlation.html#getModifiedCorrelationMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.correlation.getModifiedCorrelationMatrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Modified correlation matrix</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Args:</th><td class="field-body"><ul class="first simple">
-<li>stochastic_model (StochasticModel): Information about the model</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>Ro (mat): Return a modified correlation matrix.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="module-pyre.cholesky">
-<span id="cholesky-decomposition"></span><h3>7.1.2. Cholesky decomposition<a class="headerlink" href="#module-pyre.cholesky" title="Permalink to this headline">¶</a></h3>
-<dl class="function">
-<dt id="pyre.cholesky.CholeskyDecomposition">
-<code class="descclassname">pyre.cholesky.</code><code class="descname">CholeskyDecomposition</code><span class="sig-paren">(</span><em>A</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/cholesky.html#CholeskyDecomposition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.cholesky.CholeskyDecomposition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cholesky Decomposition</p>
-<p>The Cholesky decomposition of a Hermitian positive-definite matrix
-<span class="math">\({\bf A}\)</span> is a decomposition of the form</p>
-<div class="math">
-\[\mathbf{A = L L}^{*}\]</div>
-<p>where <span class="math">\({\bf L}\)</span> is a lower triangular matrix with positive diagonal
-entries, and <span class="math">\({\bf L}^*\)</span> denotes the conjugate transpose of
-<span class="math">\({\bf L}\)</span>. Every Hermitian positive-definite matrix (and thus also
-every real-valued symmetric positive-definite matrix) has a unique Cholesky
-decomposition.</p>
-<p>If the matrix <span class="math">\({\bf A}\)</span> is Hermitian and positive semi-definite, then
-it still has a decomposition of the form <span class="math">\({\bf A} = {\bf LL}^*\)</span> if
-the diagonal entries of <span class="math">\({\bf L}\)</span> are allowed to be zero.</p>
-<p>When <span class="math">\({\bf A}\)</span> has real entries, <span class="math">\({\bf L}\)</span> has real entries as
-well.</p>
-<p>The Cholesky decomposition is unique when <span class="math">\({\bf A}\)</span> is positive
-definite; there is only one lower triangular matrix <span class="math">\({\bf L}\)</span> with
-strictly positive diagonal entries such that <span class="math">\({\bf A} = {\bf
-LL}^*\)</span>. However, the decomposition need not be unique when <span class="math">\({\bf A}\)</span>
-is positive semidefinite.</p>
-<p>The converse holds trivially: if <span class="math">\({\bf A}\)</span> can be written as
-<span class="math">\({\bf LL}^*\)</span> for some invertible <span class="math">\({\bf L}\)</span>, lower triangular or
-otherwise, then A is Hermitian and positive definite.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Args:</th><td class="field-body"><ul class="first simple">
-<li>A (mat): Hermitian positive-definite matrix <span class="math">\({\bf A}\)</span></li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>Lo (mat): Returns a lower triangular matrix <span class="math">\({\bf L}\)</span> with positive diagonal entries</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.cholesky.computeCholeskyDecomposition">
-<code class="descclassname">pyre.cholesky.</code><code class="descname">computeCholeskyDecomposition</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/cholesky.html#computeCholeskyDecomposition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.cholesky.computeCholeskyDecomposition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute Cholesky Decomposition</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-pyre.transformation">
-<span id="transformation"></span><h3>7.1.3. Transformation<a class="headerlink" href="#module-pyre.transformation" title="Permalink to this headline">¶</a></h3>
-<dl class="function">
-<dt id="pyre.transformation.getBins">
-<code class="descclassname">pyre.transformation.</code><code class="descname">getBins</code><span class="sig-paren">(</span><em>samples</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/transformation.html#getBins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.transformation.getBins" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an optimal amount of bins for a histogram</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>bins (int): Returns amount on bins</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.transformation.jacobian">
-<code class="descclassname">pyre.transformation.</code><code class="descname">jacobian</code><span class="sig-paren">(</span><em>u</em>, <em>x</em>, <em>stochastic_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/transformation.html#jacobian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.transformation.jacobian" title="Permalink to this definition">¶</a></dt>
-<dd><p>Jacobian for the transformation</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.transformation.pdf">
-<code class="descclassname">pyre.transformation.</code><code class="descname">pdf</code><span class="sig-paren">(</span><em>x</em>, <em>marg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/transformation.html#pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.transformation.pdf" title="Permalink to this definition">¶</a></dt>
-<dd><p>probability density function</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Args:</th><td class="field-body"><ul class="first simple">
-<li>x (vec): Vector with random values</li>
-<li>marg (mat): Matrix with the marginal distributions</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>p (mat): Returns a matrix with the pdfs of the marginal distributions</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.transformation.u_to_x">
-<code class="descclassname">pyre.transformation.</code><code class="descname">u_to_x</code><span class="sig-paren">(</span><em>u</em>, <em>stochastic_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/transformation.html#u_to_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.transformation.u_to_x" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transformation from x to u space</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.transformation.x_to_u">
-<code class="descclassname">pyre.transformation.</code><code class="descname">x_to_u</code><span class="sig-paren">(</span><em>x</em>, <em>stochastic_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/transformation.html#x_to_u"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.transformation.x_to_u" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transformation from x to u space</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.transformation.z_to_x">
-<code class="descclassname">pyre.transformation.</code><code class="descname">z_to_x</code><span class="sig-paren">(</span><em>z</em>, <em>marg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/transformation.html#z_to_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.transformation.z_to_x" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transformation from z to x space</p>
-</dd></dl>
-
-</div>
-</div>
-<div class="section" id="module-pyre.quadrature">
-<span id="numerical-integration"></span><h2>7.2. Numerical Integration<a class="headerlink" href="#module-pyre.quadrature" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="pyre.quadrature.quadratureRule">
-<code class="descclassname">pyre.quadrature.</code><code class="descname">quadratureRule</code><span class="sig-paren">(</span><em>n</em>, <em>wfun=None</em>, <em>alpha=None</em>, <em>beta=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/quadrature.html#quadratureRule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.quadrature.quadratureRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Quadrature rule</p>
-</dd></dl>
-
-<span class="target" id="module-pyre.integration"></span><dl class="function">
-<dt id="pyre.integration.rho_integral">
-<code class="descclassname">pyre.integration.</code><code class="descname">rho_integral</code><span class="sig-paren">(</span><em>rho0</em>, <em>margi</em>, <em>margj</em>, <em>Z1</em>, <em>Z2</em>, <em>X1</em>, <em>X2</em>, <em>WIP</em>, <em>detJ</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/integration.html#rho_integral"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.integration.rho_integral" title="Permalink to this definition">¶</a></dt>
-<dd><p>Integral for rho0</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.integration.zi_and_xi">
-<code class="descclassname">pyre.integration.</code><code class="descname">zi_and_xi</code><span class="sig-paren">(</span><em>margi</em>, <em>margj</em>, <em>zmax</em>, <em>nIP</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/integration.html#zi_and_xi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.integration.zi_and_xi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Values for the Gauss integration</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-pyre.stepsize">
-<span id="limit-state"></span><h2>7.3. Limit State<a class="headerlink" href="#module-pyre.stepsize" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="pyre.stepsize.getStepSize">
-<code class="descclassname">pyre.stepsize.</code><code class="descname">getStepSize</code><span class="sig-paren">(</span><em>G</em>, <em>gradient</em>, <em>u</em>, <em>d</em>, <em>stochastic_model</em>, <em>analysis_options</em>, <em>limit_state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/stepsize.html#getStepSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.stepsize.getStepSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the step size for the calculation</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li>step_size (float): Returns the value of the step size.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<span class="target" id="module-pyre.limitstate"></span><dl class="function">
-<dt id="pyre.limitstate.computeLimitStateFunction">
-<code class="descclassname">pyre.limitstate.</code><code class="descname">computeLimitStateFunction</code><span class="sig-paren">(</span><em>x</em>, <em>variable_names</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/limitstate.html#computeLimitStateFunction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.limitstate.computeLimitStateFunction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the limit state function</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pyre.limitstate.evaluateLimitState">
-<code class="descclassname">pyre.limitstate.</code><code class="descname">evaluateLimitState</code><span class="sig-paren">(</span><em>x</em>, <em>stochastic_model</em>, <em>analysis_options</em>, <em>limit_state</em>, <em>modus=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyre/limitstate.html#evaluateLimitState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyre.limitstate.evaluateLimitState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate the limit state</p>
-</dd></dl>
-
-</div>
-</div>
+  <section id="calculations">
+<span id="chap-calculations"></span><h1><span class="section-number">7. </span>Calculations<a class="headerlink" href="#calculations" title="Permalink to this headline">¶</a></h1>
+<section id="matrices-operators">
+<h2><span class="section-number">7.1. </span>Matrices Operators<a class="headerlink" href="#matrices-operators" title="Permalink to this headline">¶</a></h2>
+<section id="correlation-matrix">
+<h3><span class="section-number">7.1.1. </span>Correlation Matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="cholesky-decomposition">
+<h3><span class="section-number">7.1.2. </span>Cholesky decomposition<a class="headerlink" href="#cholesky-decomposition" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="transformation">
+<h3><span class="section-number">7.1.3. </span>Transformation<a class="headerlink" href="#transformation" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="numerical-integration">
+<h2><span class="section-number">7.2. </span>Numerical Integration<a class="headerlink" href="#numerical-integration" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="limit-state">
+<h2><span class="section-number">7.3. </span>Limit State<a class="headerlink" href="#limit-state" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
 
 
            </div>
+           
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="distributions.html" class="btn btn-neutral float-right" title="8. Probability distributions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="analysis.html" class="btn btn-neutral" title="6. Analysis" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="distributions.html" class="btn btn-neutral float-right" title="8. Probability distributions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="analysis.html" class="btn btn-neutral float-left" title="6. Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Juergen Hackl.
+        &#169; Copyright 2018, Juergen Hackl.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -435,37 +237,15 @@ otherwise, then A is Hermitian and positive definite.</p>
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'5.0.3',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
