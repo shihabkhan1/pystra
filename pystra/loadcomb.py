@@ -329,14 +329,17 @@ class LoadCombination:
             Evaluation of the LSF.
 
         """
+        ## Identify the RVs which are missing in kwargs
         if self.constant is not None:
             set_miss = (
                 set(self.label_all) - set(kwargs.keys()) - set(self.constant.keys())
             )
         else:
             set_miss = set(self.label_all) - set(kwargs.keys())
+        ## Set value of missing RVs to set_value
         if len(set_miss) > 0:
             kwargs.update({xx: set_value for xx in set_miss})
+        ## Set value of constants
         for key, values in self.constant.items():
             if key not in kwargs and set_const is None:
                 kwargs.update({key: self.constant[key].getValue()})

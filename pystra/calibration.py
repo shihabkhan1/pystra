@@ -106,6 +106,7 @@ class Calibration:
         ) = self._set_labels()
         self.label_S = self.label_other + self.label_comb_vrs
         self.cvar = calib_var
+        self.startz = None
 
     ## Utility Methods
     @staticmethod
@@ -267,7 +268,7 @@ class Calibration:
             return beta_t - form.beta
 
         if max_iter is None:
-            Zk_opt = fsolve(obj_func, x0=z0, args=(target_beta), xtol=xtol)
+            Zk_opt = fsolve(obj_func, x0=z0, args=(target_beta), xtol=xtol, factor=0.01)
         else:
             Zk_opt = fsolve(
                 obj_func, x0=z0, args=(target_beta), xtol=xtol, maxfev=max_iter
@@ -478,9 +479,9 @@ class Calibration:
         None.
 
         """
-        arr_zcal, list_form_cal = self._calibrate_design_param()
+        arr_zcal, self.list_form_cal = self._calibrate_design_param()
         self.dfXstarcal = self._get_df_Xstar(
-            list_form_cal, idx=self.lc_obj.label_comb_cases
+            self.list_form_cal, idx=self.lc_obj.label_comb_cases
         )
         self.dfXstarcal["z"] = arr_zcal
 
@@ -547,7 +548,7 @@ class Calibration:
             List of calibrated Pystra FORM objects per load comb case.
 
         """
-        startz = self.lc_obj.constant[self.cvar].getValue()
+        startz = self.lc_obj.constant[self.cvar].getValue() if self.startz == None else self.startz
         rel_func = self.lc_obj.run_reliability_case
         list_z_cal = []
         list_form_cal = []
@@ -926,7 +927,9 @@ class Calibration:
         df_pgRS.loc[:, self.label_S] = (
             df_pgRS[self.label_S] * self.df_gamma * self.df_psi
         )
-        df_pgRS.loc[:, self.label_R] = df_pgRS[self.label_R] * self.df_phi
+        ## Remove double counting of resistance variables (if any)
+        label_R = list(set(self.label_R) - (set(self.label_R) & set(self.label_S)))
+        df_pgRS.loc[:, label_R] = df_pgRS[label_R] * self.df_phi
         return df_pgRS
 
     def get_design_param_factor(self):
@@ -954,3 +957,6 @@ class Calibration:
         print("\ngamma =", "\n", self.df_gamma.round(2))
         print("\npsi = ", "\n", self.df_psi.round(2))
         print("=" * n)
+        
+    def set_startz(self, zz):
+        self.startz = zz
